@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
+
 namespace EcoSystem
 {
     /// <summary>
@@ -25,8 +27,9 @@ namespace EcoSystem
         {
             InitializeComponent();
             Title = game.GameName;
+          
         }
-
+        
         private void MainWindowGrid1_Loaded(object sender, RoutedEventArgs e)
         {
             ContentFrame.Navigate(new StartInterface());

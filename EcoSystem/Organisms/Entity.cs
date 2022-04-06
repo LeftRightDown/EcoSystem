@@ -9,13 +9,15 @@ namespace EcoSystem
     public class Entity
     {
         //Declarding properties of Entity class
-        public string Name { get; set; }
+        public string Name;
 
-        //public string Type { get; set; }
-        public enum Type {Producer, Consumer, Decomposer, Player, Vendor }
-        public string Species { get; set; }
+        public string Type;
+        //public enum Type {Producer, Consumer, Decomposer, Player, Vendor }
+        public string Species;
 
-        public int Amount { get; set; }
+        public int Amount;
+
+        public string ImagePath;
 
 
     }

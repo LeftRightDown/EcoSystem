@@ -12,7 +12,6 @@ namespace EcoSystem
     {
 
         //LoadData code from PROG 201 course Demo
-
         public static List<Entity> LoadEntities(string fileName)
         {
             List<Entity> entities = new List<Entity>();
@@ -21,15 +20,15 @@ namespace EcoSystem
                 XmlDocument doc = new XmlDocument();
                 doc.Load(fileName);
                 XmlNode root = doc.DocumentElement;
-                XmlNodeList entityList = root.SelectNodes("/enviornment/entity");
+                XmlNodeList entityList = root.SelectNodes("/environment/entity");
                 foreach (XmlElement entity in entityList)
                 {
                     Entity temp;
-                    if(entity.GetAttribute("type") == "Producer")
+                    if (entity.GetAttribute("type") == "Producer")
                     {
                         temp = new Producer();
                     }
-                    else if(entity.GetAttribute("type") == "Consumer")
+                    else if (entity.GetAttribute("type") == "Consumer")
                     {
                         temp = new Consumer();
                     }
@@ -47,15 +46,22 @@ namespace EcoSystem
                     }
                     temp.Name = entity.GetAttribute("name");
                     temp.Species = entity.GetAttribute("species");
+                    if (temp.Type != "Player" || temp.Type != "Vendor")
+                    {
+                        temp.ImagePath = "Images/" + entity.GetAttribute("imagePath") + ".png";
+                    }
+                    
                    
-                    if(int.TryParse(entity.GetAttribute("amount"), out int a))
+                    if (int.TryParse(entity.GetAttribute("amount"), out int a))
                     {
                         temp.Amount = a;
                     }
                     entities.Add(temp);
+                    System.Diagnostics.Debug.WriteLine("HERE ARE ENTIRES" + "" + temp);
                 }
             }
             return entities;
+            
         }
     }
 }

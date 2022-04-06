@@ -30,6 +30,9 @@ namespace EcoSystem
         private void StartInterfaceGrid_Loaded(object sender, RoutedEventArgs e)
         {
             MainTitle.Content = MainWindow.game.GameName;
+            ButtonOne.Content = "Start";
+            ButtonTwo.Content = "Credits";
+            ButtonThree.Content = "Exit";
 
         }
 
@@ -40,7 +43,7 @@ namespace EcoSystem
             switch (button.Name)
             {
                 case "ButtonOne":
-                    NavigationService.Navigate(new Uri("SystemInterface.xaml", UriKind.Relative));
+                    NavigationService.Navigate(new Uri("XAML/SystemInterface.xaml", UriKind.Relative));
                     break;
 
                 case "ButtonTwo":
