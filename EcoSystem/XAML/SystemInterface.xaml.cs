@@ -139,14 +139,14 @@ namespace EcoSystem
 
 
         //Change Indicator Color
-        private Brush GetStatusColor(int level)
+        private Brush GetStatusColor(int amount)
         {
 
-            if (level <= 50)
+            if (amount <= 50)
             {
                 return new SolidColorBrush(Colors.Red);
             }
-            else if (level == 100)
+            else if (amount == 100)
             {
                 return new SolidColorBrush(Colors.Green);
             }
