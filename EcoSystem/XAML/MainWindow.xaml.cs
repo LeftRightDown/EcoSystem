@@ -23,6 +23,8 @@ namespace EcoSystem
     public partial class MainWindow : Window
     {
         public static Game game = new Game(); 
+        public static Player player = new Player();
+        public static Vendor vendor = new Vendor();
         public MainWindow()
         {
             InitializeComponent();

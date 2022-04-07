@@ -84,6 +84,9 @@ namespace EcoSystem
         }
         #endregion
 
+        //Environment TAB
+        #region "Environment"
+
         #region "Buttons"
         //Buttons Located inside Environment tab for player actions
         private void EnvironmentTabButtons_Click(object sender, RoutedEventArgs e)
@@ -109,11 +112,6 @@ namespace EcoSystem
         }
 
 
-
-
-
-
-
         #endregion
 
         #region "Environment Indicators/Stats"
@@ -129,11 +127,11 @@ namespace EcoSystem
 
             cornIndicator.Fill = GetConsumerStatusColor(MainWindow.game.Organisms[0].Amount, MainWindow.game.Organisms[0]);
             cottonIndicator.Fill = GetConsumerStatusColor(MainWindow.game.Organisms[1].Amount, MainWindow.game.Organisms[1]);
-
+           
             //Decomposers
             beetleTxt1.Text = $@"Name: {MainWindow.game.Organisms[6].Name} {Environment.NewLine} Amount: {MainWindow.game.Organisms[6].Amount}";
             beetleTxt2.Text = $@"Name: {MainWindow.game.Organisms[7].Name} {Environment.NewLine} Amount: {MainWindow.game.Organisms[7].Amount}";
-
+            
             beetleIndicator1.Fill = GetDecomposerStatusColor(MainWindow.game.Organisms[6].Amount, MainWindow.game.Organisms[6]);
             beetleIndicator2.Fill = GetDecomposerStatusColor(MainWindow.game.Organisms[7].Amount, MainWindow.game.Organisms[7]);
             
@@ -239,5 +237,48 @@ namespace EcoSystem
 
         #endregion
 
+        #endregion
+
+        //Vendor TAB
+        #region "Vendor"
+        private void VendorGrid_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void BuyComboBox_Loaded(object sender, RoutedEventArgs e)
+        {
+            List<string> VendorItems = new List<string>();
+            foreach (Item x in MainWindow.vendor.Inventory)
+            {
+                VendorItems.Add(x.Name);
+                System.Diagnostics.Debug.WriteLine("VENDOR DROPDOWN " + VendorItems.Count + x.Name);
+            }
+
+            var combo = sender as ComboBox;
+            combo.ItemsSource = VendorItems;
+            combo.SelectedIndex = -1;
+        }
+        private void SellComboBox_Loaded(object sender, RoutedEventArgs e)
+        {
+            List<string> PlayerItems = new List<string>();
+            foreach (Item x in MainWindow.vendor.Inventory)
+            {
+                PlayerItems.Add(x.Name);
+                System.Diagnostics.Debug.WriteLine("PLAYER DROPDOWN " + PlayerItems.Count + x.Name);
+            }
+
+            var combo = sender as ComboBox;
+            combo.ItemsSource = PlayerItems;
+            combo.SelectedIndex = -1;
+        }
+
+        #endregion
+
+        //Inventory TAB
+        #region "Inventory"
+
+        #endregion
+
+        
     }
 }

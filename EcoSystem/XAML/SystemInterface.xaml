@@ -15,10 +15,6 @@
         <TabControl x:Name="SystemTabControl" Margin="18,82,24,0">
             <TabItem x:Name="EnviornmentTab" Header="Environment">
                 <Grid x:Name="EnvironmentGrid" Background="#FFE5E5E5" Loaded="EnvironmentGrid_Loaded">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="375*"/>
-                        <ColumnDefinition Width="73*"/>
-                    </Grid.ColumnDefinitions>
                     <TextBlock x:Name="consumersTxt" HorizontalAlignment="Left" Margin="14,212,0,0" TextWrapping="Wrap" Text="Consumers" VerticalAlignment="Top" Width="68"/>
                     <TextBlock x:Name="producersTxt" HorizontalAlignment="Left" Margin="22,10,0,0" TextWrapping="Wrap" Text="Producers" VerticalAlignment="Top"/>
                     <TextBlock x:Name="decomposerTxt" HorizontalAlignment="Left" Margin="317,5,0,0" TextWrapping="Wrap" Text="Decomposers" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
@@ -47,15 +43,18 @@
                     <TextBlock x:Name="wormTxt2" HorizontalAlignment="Left" Margin="251,396,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="31" Width="129" Grid.ColumnSpan="2"/>
                     <TextBlock x:Name="beetleTxt2" HorizontalAlignment="Left" Margin="266,198,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="43" Width="146" Grid.ColumnSpan="2"/>
                     <Rectangle x:Name="wormIndicator2" HorizontalAlignment="Left" Height="12" Margin="288,371,0,0" Stroke="Black" VerticalAlignment="Top" Width="50" Fill="#FF09FF0C"/>
-                    <Rectangle x:Name="beetleIndicator2" HorizontalAlignment="Left" Height="13" Margin="314,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="50" Fill="#FF09FF0C"/>
+                    <Rectangle x:Name="beetleIndicator2" HorizontalAlignment="Left" Height="13" Margin="309,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="50" Fill="#FF09FF0C"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="VendorTab" Header="Vendor">
-                <Grid x:Name="VendorGrid" Background="#FFE5E5E5">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="29*"/>
-                        <ColumnDefinition Width="416*"/>
-                    </Grid.ColumnDefinitions>
+                <Grid x:Name="VendorGrid" Background="#FFE5E5E5" Loaded="VendorGrid_Loaded">
+                    <Label x:Name="VendorLabel" Content="SHOP" HorizontalAlignment="Left" Margin="226,10,0,0" VerticalAlignment="Top" Width="199" FontSize="30" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" Height="53"/>
+                    <TextBlock x:Name="VendorInventoryTxt" HorizontalAlignment="Left" Margin="136,63,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="399" Width="289"/>
+                    <ComboBox x:Name="SellComboBox" HorizontalAlignment="Left" Margin="10,208,0,0" VerticalAlignment="Top" Width="120" Loaded="SellComboBox_Loaded"/>
+                    <ComboBox x:Name="BuyComboBox" HorizontalAlignment="Left" Margin="10,82,0,0" VerticalAlignment="Top" Width="120" Loaded="BuyComboBox_Loaded"/>
+                    <Button x:Name="ButtonBuy" Content="Buy" HorizontalAlignment="Left" Margin="18,115,0,0" VerticalAlignment="Top" Width="104"/>
+                    <Button x:Name="ButtonSell" Content="Sell" HorizontalAlignment="Left" Margin="21,243,0,0" VerticalAlignment="Top" Width="98"/>
+
                 </Grid>
             </TabItem>
             <TabItem x:Name="InventoryTab" Header="Inventory" >

@@ -8,5 +8,9 @@ namespace EcoSystem
 {
     public class Item
     {
+        public string Name;
+        public string Description;
+        public float Price;
+        public float Quantity;
     }
 }
