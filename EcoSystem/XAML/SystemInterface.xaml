@@ -28,7 +28,7 @@
                     <Button x:Name="ButtonHawkDeterrent" Content="Hawk Deterrent" HorizontalAlignment="Left" Margin="344,448,0,0" VerticalAlignment="Top" Height="20" Width="104" Click="EnvironmentTabButtons_Click" Grid.ColumnSpan="2"/>
                     <Image x:Name="batImage" HorizontalAlignment="Left" Height="85" Margin="19,240,0,0" VerticalAlignment="Top" Width="85" Source="/Images/bat.png"/>
                     <Image x:Name="hawkImage" HorizontalAlignment="Left" Height="85" Margin="138,240,0,0" VerticalAlignment="Top" Width="85" Source="/Images/hawk.png"/>
-                    <Image x:Name="wormImage" HorizontalAlignment="Left" Height="82" Margin="305,242,0,0" VerticalAlignment="Top" Width="80" Source="/Images/worm.png" Grid.ColumnSpan="2"/>
+                    <Image x:Name="wormImage" HorizontalAlignment="Left" Height="95" Margin="272,240,0,0" VerticalAlignment="Top" Width="104" Source="/Images/worm.png"/>
                     <Image x:Name="cornImage" Height="80" Margin="19,39,0,0" VerticalAlignment="Top" Source="/Images/corn.png" HorizontalAlignment="Left" Width="88"/>
                     <Image x:Name="cottonImage" HorizontalAlignment="Left" Height="80" Margin="120,39,0,0" VerticalAlignment="Top" Width="80" Source="/Images/cotton.png"/>
                     <Image x:Name="beetleImage" HorizontalAlignment="Left" Height="87" Margin="317,32,0,0" VerticalAlignment="Top" Width="90" Source="/Images/beetle.png" Grid.ColumnSpan="2"/>
@@ -36,16 +36,18 @@
                     <Rectangle x:Name="cottonIndicator" HorizontalAlignment="Left" Height="12" Margin="138,123,0,0" Stroke="Black" VerticalAlignment="Top" Width="44" Fill="#FF09FF0C"/>
                     <Rectangle x:Name="batIndicator" HorizontalAlignment="Left" Height="12" Margin="36,330,0,0" Stroke="Black" VerticalAlignment="Top" Width="47" Fill="#FF09FF0C"/>
                     <Rectangle x:Name="hawkIndicator" HorizontalAlignment="Left" Height="12" Margin="162,330,0,0" Stroke="Black" VerticalAlignment="Top" Width="48" Fill="#FF09FF0C"/>
-                    <Rectangle x:Name="beetleIndicator" HorizontalAlignment="Left" Height="13" Margin="309,129,0,0" Stroke="Black" VerticalAlignment="Top" Width="50" Fill="#FF09FF0C"/>
-                    <Rectangle x:Name="wormIndicator" HorizontalAlignment="Left" Height="13" Margin="314,312,0,0" Stroke="Black" VerticalAlignment="Top" Width="50" Fill="#FF09FF0C"/>
+                    <Rectangle x:Name="beetleIndicator1" HorizontalAlignment="Left" Height="13" Margin="309,129,0,0" Stroke="Black" VerticalAlignment="Top" Width="50" Fill="#FF09FF0C"/>
+                    <Rectangle x:Name="wormIndicator1" HorizontalAlignment="Left" Height="13" Margin="290,312,0,0" Stroke="Black" VerticalAlignment="Top" Width="50" Fill="#FF09FF0C"/>
                     <TextBlock x:Name="cornTxt" HorizontalAlignment="Left" Margin="10,139,0,304" TextWrapping="Wrap" Text="TextBlock" Width="114"/>
                     <TextBlock x:Name="cottonTxt" HorizontalAlignment="Left" Margin="128,142,0,304" TextWrapping="Wrap" Text="TextBlock" Width="101"/>
                     <TextBlock x:Name="batTxt" HorizontalAlignment="Left" Margin="10,347,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="49" Width="115"/>
                     <TextBlock x:Name="hawkTxt" HorizontalAlignment="Left" Margin="131,347,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="49" Width="124"/>
-                    <TextBlock x:Name="wormTxt1" HorizontalAlignment="Left" Margin="274,330,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="34" Width="121" Grid.ColumnSpan="2"/>
+                    <TextBlock x:Name="wormTxt1" HorizontalAlignment="Left" Margin="255,329,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="34" Width="121"/>
                     <TextBlock x:Name="beetleTxt1" HorizontalAlignment="Left" Margin="275,147,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="39" Width="149" Grid.ColumnSpan="2"/>
-                    <TextBlock x:Name="wormTxt2" HorizontalAlignment="Left" Margin="274,381,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="31" Width="129" Grid.ColumnSpan="2"/>
-                    <TextBlock x:Name="beetleTxt2" HorizontalAlignment="Left" Margin="272,194,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="43" Width="146" Grid.ColumnSpan="2"/>
+                    <TextBlock x:Name="wormTxt2" HorizontalAlignment="Left" Margin="251,396,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="31" Width="129" Grid.ColumnSpan="2"/>
+                    <TextBlock x:Name="beetleTxt2" HorizontalAlignment="Left" Margin="266,198,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="43" Width="146" Grid.ColumnSpan="2"/>
+                    <Rectangle x:Name="wormIndicator2" HorizontalAlignment="Left" Height="12" Margin="288,371,0,0" Stroke="Black" VerticalAlignment="Top" Width="50" Fill="#FF09FF0C"/>
+                    <Rectangle x:Name="beetleIndicator2" HorizontalAlignment="Left" Height="13" Margin="314,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="50" Fill="#FF09FF0C"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="VendorTab" Header="Vendor">

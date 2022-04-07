@@ -27,18 +27,22 @@ namespace EcoSystem
                     if (entity.GetAttribute("type") == "Producer")
                     {
                         temp = new Producer();
+                        temp.Type = entity.GetAttribute("type");
                     }
                     else if (entity.GetAttribute("type") == "Consumer")
                     {
                         temp = new Consumer();
+                        temp.Type = entity.GetAttribute("type");
                     }
                     else if (entity.GetAttribute("type") == "Decomposer")
                     {
                         temp = new Decomposer();
+                        temp.Type = entity.GetAttribute("type");
                     }
                     else if (entity.GetAttribute("type") == "Player" || entity.GetAttribute("type") == "Vendor")
                     {
                         temp = new Persons();
+                        temp.Type = entity.GetAttribute("type");
                     }
                     else
                     {

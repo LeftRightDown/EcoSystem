@@ -3,17 +3,17 @@
     </entity>
     <entity type="Producer" name="Cotton" species = "Gossypium hirsutum" imagePath="cotton" amount = "1000">
     </entity>
-    <entity type="Consumer" name="Corn earworm" species = "Helicoverpa zea" imagePath="worm" amount = "50">
+    <entity type="Consumer" name="Corn earworm" species = "Helicoverpa zea" imagePath="worm" amount = "120">
     </entity>
-    <entity type="Consumer" name="Cotton Bollworm" species = "Helicoverpa zea" imagePath="worm" amount = "1300">
+    <entity type="Consumer" name="Cotton Bollworm" species = "Helicoverpa zea" imagePath="worm" amount = "250">
     </entity>
-    <entity type="Consumer" name="Brazilian free-tailed bat" species = "Tadarida brasiliensis" imagePath="bat" amount = "10">
+    <entity type="Consumer" name="Brazilian free-tailed bat" species = "Tadarida brasiliensis" imagePath="bat" amount = "150">
     </entity>
     <entity type="Consumer" name="Red-tailed hawk" species = "Buteo jamaicensis" imagePath="hawk" amount = "1">
     </entity>
-    <entity type="Decomposer" name="Dermestid beetle" species = "Dermestes carnivora" imagePath="beetle" amount = "2">
+    <entity type="Decomposer" name="Dermestid beetle" species = "Dermestes carnivora" imagePath="beetle" amount = "5">
     </entity>
-    <entity type="Decomposer" name="Guano Beetle" species = "Jacobsoniidae" imagePath="beetle" amount = "2">
+    <entity type="Decomposer" name="Guano Beetle" species = "Jacobsoniidae" imagePath="beetle" amount = "5">
     </entity>
     <entity type="Player" name="Anonymous Player" species = "Human" amount = "1">
     </entity>
