@@ -15,54 +15,85 @@
         <TabControl x:Name="SystemTabControl" Margin="18,82,24,0">
             <TabItem x:Name="EnviornmentTab" Header="Environment">
                 <Grid x:Name="EnvironmentGrid" Background="#FFE5E5E5" Loaded="EnvironmentGrid_Loaded">
-                    <TextBlock x:Name="consumersTxt" HorizontalAlignment="Left" Margin="14,212,0,0" TextWrapping="Wrap" Text="Consumers" VerticalAlignment="Top" Width="68"/>
-                    <TextBlock x:Name="producersTxt" HorizontalAlignment="Left" Margin="22,10,0,0" TextWrapping="Wrap" Text="Producers" VerticalAlignment="Top"/>
-                    <TextBlock x:Name="decomposerTxt" HorizontalAlignment="Left" Margin="317,5,0,0" TextWrapping="Wrap" Text="Decomposers" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
                     <Button x:Name="ButtonHarvest" Content="Harvest" HorizontalAlignment="Left" Margin="20,448,0,0" Width="104" Height="20" VerticalAlignment="Top" Click="EnvironmentTabButtons_Click"/>
                     <Button x:Name="ButtonPlant" Content="Plant" HorizontalAlignment="Left" Margin="128,448,0,0" Height="20" VerticalAlignment="Top" Width="104" Click="EnvironmentTabButtons_Click"/>
                     <Button x:Name="ButtonPesticides" Content="Pesticides" HorizontalAlignment="Left" Margin="236,448,0,0" VerticalAlignment="Top" Width="104" Height="20" Click="EnvironmentTabButtons_Click"/>
                     <Button x:Name="ButtonHawkDeterrent" Content="Hawk Deterrent" HorizontalAlignment="Left" Margin="344,448,0,0" VerticalAlignment="Top" Height="20" Width="104" Click="EnvironmentTabButtons_Click" Grid.ColumnSpan="2"/>
-                    <Image x:Name="batImage" HorizontalAlignment="Left" Height="85" Margin="19,240,0,0" VerticalAlignment="Top" Width="85" Source="/Images/bat.png"/>
-                    <Image x:Name="hawkImage" HorizontalAlignment="Left" Height="85" Margin="138,240,0,0" VerticalAlignment="Top" Width="85" Source="/Images/hawk.png"/>
-                    <Image x:Name="wormImage" HorizontalAlignment="Left" Height="95" Margin="272,240,0,0" VerticalAlignment="Top" Width="104" Source="/Images/worm.png"/>
-                    <Image x:Name="cornImage" Height="80" Margin="19,39,0,0" VerticalAlignment="Top" Source="/Images/corn.png" HorizontalAlignment="Left" Width="88"/>
-                    <Image x:Name="cottonImage" HorizontalAlignment="Left" Height="80" Margin="120,39,0,0" VerticalAlignment="Top" Width="80" Source="/Images/cotton.png"/>
-                    <Image x:Name="beetleImage" HorizontalAlignment="Left" Height="87" Margin="317,32,0,0" VerticalAlignment="Top" Width="90" Source="/Images/beetle.png" Grid.ColumnSpan="2"/>
-                    <Rectangle x:Name="cornIndicator" HorizontalAlignment="Left" Height="12" Margin="35,123,0,0" Stroke="Black" VerticalAlignment="Top" Width="45" Fill="#FF09FF0C"/>
-                    <Rectangle x:Name="cottonIndicator" HorizontalAlignment="Left" Height="12" Margin="138,123,0,0" Stroke="Black" VerticalAlignment="Top" Width="44" Fill="#FF09FF0C"/>
-                    <Rectangle x:Name="batIndicator" HorizontalAlignment="Left" Height="12" Margin="36,330,0,0" Stroke="Black" VerticalAlignment="Top" Width="47" Fill="#FF09FF0C"/>
-                    <Rectangle x:Name="hawkIndicator" HorizontalAlignment="Left" Height="12" Margin="162,330,0,0" Stroke="Black" VerticalAlignment="Top" Width="48" Fill="#FF09FF0C"/>
-                    <Rectangle x:Name="beetleIndicator1" HorizontalAlignment="Left" Height="13" Margin="309,129,0,0" Stroke="Black" VerticalAlignment="Top" Width="50" Fill="#FF09FF0C"/>
-                    <Rectangle x:Name="wormIndicator1" HorizontalAlignment="Left" Height="13" Margin="290,312,0,0" Stroke="Black" VerticalAlignment="Top" Width="50" Fill="#FF09FF0C"/>
-                    <TextBlock x:Name="cornTxt" HorizontalAlignment="Left" Margin="10,139,0,304" TextWrapping="Wrap" Text="TextBlock" Width="114"/>
-                    <TextBlock x:Name="cottonTxt" HorizontalAlignment="Left" Margin="128,142,0,304" TextWrapping="Wrap" Text="TextBlock" Width="101"/>
-                    <TextBlock x:Name="batTxt" HorizontalAlignment="Left" Margin="10,347,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="49" Width="115"/>
-                    <TextBlock x:Name="hawkTxt" HorizontalAlignment="Left" Margin="131,347,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="49" Width="124"/>
-                    <TextBlock x:Name="wormTxt1" HorizontalAlignment="Left" Margin="255,329,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="34" Width="121"/>
-                    <TextBlock x:Name="beetleTxt1" HorizontalAlignment="Left" Margin="275,147,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="39" Width="149" Grid.ColumnSpan="2"/>
-                    <TextBlock x:Name="wormTxt2" HorizontalAlignment="Left" Margin="251,396,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="31" Width="129" Grid.ColumnSpan="2"/>
-                    <TextBlock x:Name="beetleTxt2" HorizontalAlignment="Left" Margin="266,198,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="43" Width="146" Grid.ColumnSpan="2"/>
-                    <Rectangle x:Name="wormIndicator2" HorizontalAlignment="Left" Height="12" Margin="288,371,0,0" Stroke="Black" VerticalAlignment="Top" Width="50" Fill="#FF09FF0C"/>
-                    <Rectangle x:Name="beetleIndicator2" HorizontalAlignment="Left" Height="13" Margin="309,180,0,0" Stroke="Black" VerticalAlignment="Top" Width="50" Fill="#FF09FF0C"/>
+                    <Canvas x:Name="ProducersCanvas" Margin="14,0,220,283">
+                        <TextBlock x:Name="producersTxt" TextWrapping="Wrap" Text="Producers" HorizontalAlignment="Left" Canvas.Left="21" Canvas.Top="10" VerticalAlignment="Top"/>
+                        <Image x:Name="cornImage" Height="80" Source="/Images/corn.png" Width="88" HorizontalAlignment="Left" Canvas.Left="18" Canvas.Top="39" VerticalAlignment="Top"/>
+                        <Image x:Name="cottonImage" Height="80" Width="80" Source="/Images/cotton.png" HorizontalAlignment="Left" Canvas.Left="119" Canvas.Top="39" VerticalAlignment="Top"/>
+                        <Rectangle x:Name="cornIndicator" Height="12" Stroke="Black" Width="45" Fill="#FF09FF0C" HorizontalAlignment="Left" Canvas.Left="34" Canvas.Top="123" VerticalAlignment="Top"/>
+                        <Rectangle x:Name="cottonIndicator" Height="12" Stroke="Black" Width="44" Fill="#FF09FF0C" HorizontalAlignment="Left" Canvas.Left="137" Canvas.Top="123" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="cornTxt" TextWrapping="Wrap" Text="TextBlock" Width="114" HorizontalAlignment="Left" Height="47" Canvas.Left="9" Canvas.Top="139"/>
+                        <TextBlock x:Name="cottonTxt" TextWrapping="Wrap" Text="TextBlock" Width="101" HorizontalAlignment="Left" Height="44" Canvas.Left="127" Canvas.Top="142"/>
+                    </Canvas>
+                    <Canvas x:Name="DecomposersCanvas" Margin="258,0,0,260">
+                        <TextBlock x:Name="decomposerTxt" TextWrapping="Wrap" Text="Decomposers" HorizontalAlignment="Left" Canvas.Left="67" Canvas.Top="4" VerticalAlignment="Top"/>
+                        <Image x:Name="beetleImage" Height="87" Width="90" Source="/Images/beetle.png" HorizontalAlignment="Left" Canvas.Left="67" Canvas.Top="31" VerticalAlignment="Top"/>
+                        <Rectangle x:Name="beetleIndicator1" Height="13" Stroke="Black" Width="50" Fill="#FF09FF0C" HorizontalAlignment="Left" Canvas.Left="59" Canvas.Top="128" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="beetleTxt1" TextWrapping="Wrap" Text="TextBlock" Height="39" Width="149" HorizontalAlignment="Left" Canvas.Left="25" Canvas.Top="146" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="beetleTxt2" TextWrapping="Wrap" Text="TextBlock" Height="33" Width="146" HorizontalAlignment="Center" Canvas.Left="16" Canvas.Top="197" VerticalAlignment="Top"/>
+                        <Rectangle x:Name="beetleIndicator2" Height="13" Stroke="Black" Width="50" Fill="#FF09FF0C" HorizontalAlignment="Left" Canvas.Left="59" Canvas.Top="179" VerticalAlignment="Top"/>
+                    </Canvas>
+                    <Canvas x:Name="ConsumersCanvas" Margin="0,230,0,52">
+                        <Image x:Name="batImage" Height="85" Width="85" Source="/Images/bat.png" HorizontalAlignment="Left" Canvas.Left="49" Canvas.Top="31" VerticalAlignment="Top"/>
+                        <Image x:Name="hawkImage" Height="85" Width="85" Source="/Images/hawk.png" HorizontalAlignment="Left" Canvas.Left="168" Canvas.Top="31" VerticalAlignment="Top"/>
+                        <Image x:Name="wormImage" Height="95" Width="104" Source="/Images/worm.png" HorizontalAlignment="Left" Canvas.Left="311" Canvas.Top="26" VerticalAlignment="Top"/>
+                        <Rectangle x:Name="batIndicator" Height="12" Stroke="Black" Width="47" Fill="#FF09FF0C" HorizontalAlignment="Left" Canvas.Left="66" Canvas.Top="121" VerticalAlignment="Top"/>
+                        <Rectangle x:Name="hawkIndicator" Height="12" Stroke="Black" Width="48" Fill="#FF09FF0C" HorizontalAlignment="Left" Canvas.Left="192" Canvas.Top="121" VerticalAlignment="Top"/>
+                        <Rectangle x:Name="wormIndicator1" Height="13" Stroke="Black" Width="50" Fill="#FF09FF0C" HorizontalAlignment="Left" Canvas.Left="296" Canvas.Top="98" VerticalAlignment="Center"/>
+                        <TextBlock x:Name="batTxt" TextWrapping="Wrap" Text="TextBlock" Height="44" Width="115" HorizontalAlignment="Center" Canvas.Left="40" Canvas.Top="138" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="hawkTxt" TextWrapping="Wrap" Text="TextBlock" Height="44" Width="124" HorizontalAlignment="Center" Canvas.Left="161" Canvas.Top="138" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="wormTxt1" TextWrapping="Wrap" Text="TextBlock" Height="34" Width="121" HorizontalAlignment="Left" Canvas.Left="294" Canvas.Top="115" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="wormTxt2" TextWrapping="Wrap" Text="TextBlock" Height="31" Width="129" HorizontalAlignment="Left" Canvas.Left="285" Canvas.Top="167" VerticalAlignment="Top"/>
+                        <Rectangle x:Name="wormIndicator2" Height="12" Stroke="Black" Width="50" Fill="#FF09FF0C" HorizontalAlignment="Left" Canvas.Left="296" Canvas.Top="149" VerticalAlignment="Center"/>
+                        <TextBlock x:Name="consumersTxt" TextWrapping="Wrap" Text="Consumers" Width="68" HorizontalAlignment="Left" Canvas.Left="22" Canvas.Top="10" VerticalAlignment="Top"/>
+                    </Canvas>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="VendorTab" Header="Vendor">
-                <Grid x:Name="VendorGrid" Background="#FFE5E5E5" Loaded="VendorGrid_Loaded">
+            <TabItem x:Name="VendorTab" Header="Vendor" RenderTransformOrigin="0.72,0.701">
+                <Grid x:Name="VendorGrid" Background="#FFE5E5E5">
                     <Label x:Name="VendorLabel" Content="SHOP" HorizontalAlignment="Left" Margin="226,10,0,0" VerticalAlignment="Top" Width="199" FontSize="30" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" Height="53"/>
-                    <TextBlock x:Name="VendorInventoryTxt" HorizontalAlignment="Left" Margin="136,63,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="399" Width="289"/>
-                    <ComboBox x:Name="SellComboBox" HorizontalAlignment="Left" Margin="10,208,0,0" VerticalAlignment="Top" Width="120" Loaded="SellComboBox_Loaded"/>
-                    <ComboBox x:Name="BuyComboBox" HorizontalAlignment="Left" Margin="10,82,0,0" VerticalAlignment="Top" Width="120" Loaded="BuyComboBox_Loaded"/>
-                    <Button x:Name="ButtonBuy" Content="Buy" HorizontalAlignment="Left" Margin="18,115,0,0" VerticalAlignment="Top" Width="104"/>
-                    <Button x:Name="ButtonSell" Content="Sell" HorizontalAlignment="Left" Margin="21,243,0,0" VerticalAlignment="Top" Width="98"/>
+                    <TabControl x:Name="ShopTabs" Margin="122,47,5,143" TabStripPlacement="Top">
+                        <TabItem x:Name="BuyTab" Header="Buy" Loaded="BuyTab_Loaded">
+                            <Grid x:Name="BuyGrid">
+                                <Canvas x:Name="VendorInventoryCanvas" Margin="10,10,10,10">
+                                    <TextBlock x:Name="VendorItemNameTxt" TextWrapping="Wrap" Text="{Binding Path=Name}" Height="28" Width="138" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="24" Canvas.Top="10"/>
+                                    <TextBlock x:Name="VendorItemDescriptionTxt" Canvas.Left="13" TextWrapping="Wrap" Text="{Binding Path=Description}" Canvas.Top="97" Height="100" Width="273" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                                    <TextBlock x:Name="VendorInventoryPriceTxt" Canvas.Left="24" TextWrapping="Wrap" Text="{Binding Path=Price}" Canvas.Top="43" HorizontalAlignment="Center" VerticalAlignment="Center" Width="98"/>
+                                    <TextBlock x:Name="VendorItemQuantityTxt" Canvas.Left="37" TextWrapping="Wrap" Text="{Binding Path=Quantity}" Canvas.Top="64" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56"/>
+                                    <Image x:Name="VendorItemImage" Source="{Binding Path=Image}" Height="100" Canvas.Left="162" Canvas.Top="9" Width="126" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                    <Button x:Name="BuyNextButton" Content="Next" Canvas.Left="184" Canvas.Top="222" Width="102" HorizontalAlignment="Center" VerticalAlignment="Center" Click="VendorTabButtons_Click"/>
+                                    <Button x:Name="ButtonBuy" Content="Buy" Width="104" HorizontalAlignment="Left" Canvas.Left="13" Canvas.Top="222" VerticalAlignment="Top" Click="VendorTabButtons_Click"/>
+                                </Canvas>
+                            </Grid>
+                        </TabItem>
+                        <TabItem x:Name="SellTab" Header="Sell" Loaded="SellTab_Loaded">
+                            <Grid x:Name="SellGrid">
+                                <Canvas x:Name="PlayerInventoryCanvas" Margin="10,0,10,0" Height="252">
+                                    <TextBlock x:Name="PlayerItemNameTxt" TextWrapping="Wrap" Text="{Binding Path=Name}" Height="28" Width="138" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="24" Canvas.Top="10"/>
+                                    <TextBlock x:Name="PlayerItemDescriptionTxt" Canvas.Left="13" TextWrapping="Wrap" Text="{Binding Path=Description}" Canvas.Top="97" Height="100" Width="273" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                                    <TextBlock x:Name="PlayerItemPriceTxt" Canvas.Left="24" TextWrapping="Wrap" Text="{Binding Path=Price}" Canvas.Top="43" HorizontalAlignment="Center" VerticalAlignment="Center" Width="98"/>
+                                    <TextBlock x:Name="PlayerItemQuantityTxt" Canvas.Left="37" TextWrapping="Wrap" Text="{Binding Path=Quantity}" Canvas.Top="64" HorizontalAlignment="Left" VerticalAlignment="Top" Width="56"/>
+                                    <Image x:Name="PlayerItemImage" Source="{Binding Path=Image}" Height="100" Canvas.Left="162" Canvas.Top="9" Width="126" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                    <Button x:Name="ButtonSell" Content="Sell" Width="104" HorizontalAlignment="Left" Canvas.Left="13" Canvas.Top="222" VerticalAlignment="Center" Click="VendorTabButtons_Click"/>
+                                    <Button x:Name="SellNextButton" Content="Next" Canvas.Left="184" Canvas.Top="222" HorizontalAlignment="Left" VerticalAlignment="Center" Width="102" Click="VendorTabButtons_Click"/>
+                                </Canvas>
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
 
                 </Grid>
             </TabItem>
             <TabItem x:Name="InventoryTab" Header="Inventory" >
-                <Grid x:Name="InventoryGrid" Background="#FFE5E5E5">
+                <Grid x:Name="InventoryGrid" Background="#FFE5E5E5" Loaded="InventoryGrid_Loaded">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="29*"/>
                         <ColumnDefinition Width="416*"/>
                     </Grid.ColumnDefinitions>
+                    <TextBlock x:Name="PlayerInventoryTitle" Grid.Column="1" HorizontalAlignment="Left" Margin="17,20,0,0" TextWrapping="Wrap" Text="Player Inventory" VerticalAlignment="Top" Height="53" Width="264" FontSize="36"/>
+                    <TextBlock x:Name="PlayerItemList" HorizontalAlignment="Left" Margin="29,73,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="381" Width="393" Grid.ColumnSpan="2" FontSize="18" TextAlignment="Center"/>
                 </Grid>
             </TabItem>
         </TabControl>

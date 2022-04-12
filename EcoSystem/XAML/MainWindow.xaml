@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EcoSystem"
         mc:Ignorable="d"
-        Title="MainWindow" Height="630" Width="520" Background="#FF1E2020" Icon="/bat_bats_icon_155976.ico">
+        Title="MainWindow" Height="630" Width="520" Background="#FF1E2020" Icon="/bat_bats_icon_155976.ico" WindowStartupLocation="CenterScreen">
     <Grid x:Name="MainWindowGrid1" Loaded="MainWindowGrid1_Loaded">
         <DockPanel LastChildFill="False" Grid.ColumnSpan="2">
             <Frame x:Name="ContentFrame" Width="510" NavigationUIVisibility="Hidden"/>

@@ -22,10 +22,15 @@ namespace EcoSystem
     /// </summary>
     public partial class SystemInterface : Page
     {
+        //Declaring Timer Properties
         DispatcherTimer timer;
         TimeSpan timeSpan;
         int DayNumber = 1;
-        
+
+        //Declaring List Property
+        int index = 0;
+
+
         public SystemInterface()
         {
             InitializeComponent();
@@ -241,44 +246,78 @@ namespace EcoSystem
 
         //Vendor TAB
         #region "Vendor"
-        private void VendorGrid_Loaded(object sender, RoutedEventArgs e)
+        private void BuyTab_Loaded(object sender, RoutedEventArgs e)
         {
-
+          DataContext = MainWindow.vendor.Inventory[index];
         }
-        private void BuyComboBox_Loaded(object sender, RoutedEventArgs e)
+        private void SellTab_Loaded(object sender, RoutedEventArgs e)
         {
-            List<string> VendorItems = new List<string>();
-            foreach (Item x in MainWindow.vendor.Inventory)
+          DataContext = MainWindow.player.Inventory[index];
+        }
+
+        private void VendorTabButtons_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+
+            switch (button.Name)
             {
-                VendorItems.Add(x.Name);
-                System.Diagnostics.Debug.WriteLine("VENDOR DROPDOWN " + VendorItems.Count + x.Name);
-            }
+                case "ButtonBuy":
 
-            var combo = sender as ComboBox;
-            combo.ItemsSource = VendorItems;
-            combo.SelectedIndex = -1;
-        }
-        private void SellComboBox_Loaded(object sender, RoutedEventArgs e)
-        {
-            List<string> PlayerItems = new List<string>();
-            foreach (Item x in MainWindow.vendor.Inventory)
-            {
-                PlayerItems.Add(x.Name);
-                System.Diagnostics.Debug.WriteLine("PLAYER DROPDOWN " + PlayerItems.Count + x.Name);
-            }
+                    break;
+                case "ButtonSell":
 
-            var combo = sender as ComboBox;
-            combo.ItemsSource = PlayerItems;
-            combo.SelectedIndex = -1;
+                    break;
+                case "BuyNextButton":
+                    index++;
+
+                    if (index >= MainWindow.vendor.Inventory.Count)
+                    {
+                        index = 0;
+                    }
+                    DataContext = MainWindow.vendor.Inventory[index];
+                    break;
+                case "SellNextButton":
+                    index++;
+
+                    if (index >= MainWindow.player.Inventory.Count)
+                    {
+                        index = 0;
+                    }
+                    DataContext = MainWindow.player.Inventory[index];
+
+                    break;
+            
+
+            }
         }
+
+
+
+
 
         #endregion
 
         //Inventory TAB
         #region "Inventory"
+        private void InventoryGrid_Loaded(object sender, RoutedEventArgs e)
+        {
+            PlayerItemList.Text = ListPlayerInventory();
 
+        }
+
+        private string ListPlayerInventory()
+        {
+            string output = "";
+
+            foreach (Item x in MainWindow.player.Inventory)
+            {
+                output += $" Item: {x.Name} ({x.Quantity}) {Environment.NewLine} Price: {x.Price.ToString("c")} {Environment.NewLine} {x.Description} {Environment.NewLine} {Environment.NewLine}";
+            }
+            return output;
+
+        }
         #endregion
 
-        
+       
     }
 }

@@ -29,12 +29,14 @@ namespace EcoSystem
         {
             InitializeComponent();
             Title = game.GameName;
-          
+            
         }
         
         private void MainWindowGrid1_Loaded(object sender, RoutedEventArgs e)
         {
             ContentFrame.Navigate(new StartInterface());
+            player.Inventory = LoadData.LoadItems("../../data/PlayerItems.xml");
+            vendor.Inventory = LoadData.LoadItems("../../data/VendorItems.xml");
         }
     }
 }

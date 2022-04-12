@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="IExchange.cs" />
     <Compile Include="Organisms\Entity.cs" />
     <Compile Include="Environment\Game.cs" />
     <Compile Include="Environment\Item.cs" />

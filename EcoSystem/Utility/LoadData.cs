@@ -54,8 +54,8 @@ namespace EcoSystem
                     {
                         temp.ImagePath = "Images/" + entity.GetAttribute("imagePath") + ".png";
                     }
-                    
-                   
+
+
                     if (int.TryParse(entity.GetAttribute("amount"), out int a))
                     {
                         temp.Amount = a;
@@ -65,7 +65,34 @@ namespace EcoSystem
                 }
             }
             return entities;
-            
+
+        }
+
+
+        public static List<Item> LoadItems(string fileName)
+        {
+
+            List<Item> Items = new List<Item>();
+            if (File.Exists(fileName))
+            {
+                XmlDocument doc = new XmlDocument();
+                doc.Load(fileName);
+                XmlNode root = doc.DocumentElement;
+                XmlNodeList itemsList = root.SelectNodes("/environment/item");
+                foreach (XmlElement Item in itemsList)
+                {
+                    Items.Add(
+                    new Item
+                    {
+                        Name = Item.GetAttribute("name"),
+                        Description = Item.GetAttribute("description"),
+                        Price = float.Parse(Item.GetAttribute("price")),
+                        Quantity = float.Parse(Item.GetAttribute("quantity")),
+
+                    });;
+                }
+            }
+            return Items;
         }
     }
 }
