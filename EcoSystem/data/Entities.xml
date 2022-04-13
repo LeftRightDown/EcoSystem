@@ -7,7 +7,7 @@
     </entity>
     <entity type="Consumer" name="Cotton Bollworm" species = "Helicoverpa zea" imagePath="worm" amount = "250">
     </entity>
-    <entity type="Consumer" name="Brazilian free-tailed bat" species = "Tadarida brasiliensis" imagePath="bat" amount = "150">
+    <entity type="Consumer" name="Brazilian bat" species = "Tadarida brasiliensis" imagePath="bat" amount = "150">
     </entity>
     <entity type="Consumer" name="Red-tailed hawk" species = "Buteo jamaicensis" imagePath="hawk" amount = "1">
     </entity>

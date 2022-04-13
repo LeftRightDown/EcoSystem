@@ -17,8 +17,13 @@ namespace EcoSystem
 
         public int Amount;
 
+        
+
         public string ImagePath;
 
 
+        public event EventHandler<EventArgs> AmountChanged;
+
+     
     }
 }

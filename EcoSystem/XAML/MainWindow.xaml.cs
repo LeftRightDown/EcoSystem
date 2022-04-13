@@ -32,7 +32,7 @@ namespace EcoSystem
             
         }
         
-        private void MainWindowGrid1_Loaded(object sender, RoutedEventArgs e)
+        private void MainWindowGrid_Loaded(object sender, RoutedEventArgs e)
         {
             ContentFrame.Navigate(new StartInterface());
             player.Inventory = LoadData.LoadItems("../../data/PlayerItems.xml");

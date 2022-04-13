@@ -246,13 +246,16 @@ namespace EcoSystem
 
         //Vendor TAB
         #region "Vendor"
-        private void BuyTab_Loaded(object sender, RoutedEventArgs e)
+       void BuyGrid_Loaded(object sender, RoutedEventArgs e)
+       {
+         DataContext = MainWindow.vendor.Inventory[index];
+         System.Diagnostics.Debug.WriteLine($"LOADING BUYTAB");
+       }
+
+        private void SellGrid_Loaded(object sender, RoutedEventArgs e)
         {
-          DataContext = MainWindow.vendor.Inventory[index];
-        }
-        private void SellTab_Loaded(object sender, RoutedEventArgs e)
-        {
-          DataContext = MainWindow.player.Inventory[index];
+            DataContext = MainWindow.player.Inventory[index];
+            System.Diagnostics.Debug.WriteLine($"LOADING SELLTAB");
         }
 
         private void VendorTabButtons_Click(object sender, RoutedEventArgs e)
@@ -275,6 +278,7 @@ namespace EcoSystem
                         index = 0;
                     }
                     DataContext = MainWindow.vendor.Inventory[index];
+                    System.Diagnostics.Debug.WriteLine($"{DataContext} THIS IS WHERE VENDOR");
                     break;
                 case "SellNextButton":
                     index++;
@@ -284,6 +288,7 @@ namespace EcoSystem
                         index = 0;
                     }
                     DataContext = MainWindow.player.Inventory[index];
+                    System.Diagnostics.Debug.WriteLine($"{DataContext} THIS IS WHERE PLAYER");
 
                     break;
             
@@ -316,8 +321,9 @@ namespace EcoSystem
             return output;
 
         }
+
         #endregion
 
-       
+
     }
 }
