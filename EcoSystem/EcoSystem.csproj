@@ -55,7 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="IExchange.cs" />
+    <Compile Include="People\IExchange.cs" />
     <Compile Include="Organisms\Entity.cs" />
     <Compile Include="Environment\Game.cs" />
     <Compile Include="Environment\Item.cs" />
@@ -121,7 +121,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="bat_bats_icon_155976.ico" />
+    <Resource Include="Images\bat_bats_icon_155976.ico" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\bat.png" />

@@ -31,6 +31,11 @@ namespace EcoSystem
         int index = 0;
 
 
+        //Declaring Buy and Sell Delegate
+        private Item Input;
+        private delegate void BuyAndSell(string itemName, Persons Seller, Persons Buyer, List<Item> SellerList, List<Item> BuyerList);
+        
+
         public SystemInterface()
         {
             InitializeComponent();
@@ -258,14 +263,21 @@ namespace EcoSystem
             System.Diagnostics.Debug.WriteLine($"LOADING SELLTAB");
         }
 
+        //Buttons Within Vendor Tab
         private void VendorTabButtons_Click(object sender, RoutedEventArgs e)
         {
+            BuyAndSell PlayerBuy = MainWindow.vendor.Sell;
+            BuyAndSell VendorSell = MainWindow.player.Buy;
             Button button = (Button)sender;
 
             switch (button.Name)
             {
                 case "ButtonBuy":
-
+                    //Player Buys Item from Vendor
+                    Input = DataContext;
+                    System.Diagnostics.Debug.WriteLine($"{DataContext.ToString()} databinded items");
+                    VendorSell(Input, MainWindow.player, MainWindow.vendor, MainWindow.vendor.Inventory, MainWindow.player.Inventory);
+                    
                     break;
                 case "ButtonSell":
 

@@ -13,5 +13,13 @@ namespace EcoSystem
 
         //Removes Money points from Person instance depending on Item price
         float CurrencySubtract(float currency, float item);
+
+
+        //Universal Buy and Sell method for Each person child class
+        void Buy(string itemName, Persons Seller, Persons Buyer, List<Item> SellerList, List<Item> BuyerList);
+
+        void Sell(string itemName, Persons Seller, Persons Buyer, List<Item> SellerList, List<Item> BuyerList);
+
+
     }
 }

@@ -5,8 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EcoSystem"
         mc:Ignorable="d"
-        Title="MainWindow" Height="630" Width="520" Background="#FF1E2020" Icon="/bat_bats_icon_155976.ico" WindowStartupLocation="CenterScreen" Loaded="MainWindowGrid_Loaded">
+        Title="MainWindow" Height="630" Width="520" Background="#FF1E2020" Icon="/Images/bat_bats_icon_155976.ico" WindowStartupLocation="CenterScreen" Loaded="MainWindowGrid_Loaded">
     <Grid x:Name="MainWindowGrid1" Loaded="MainWindowGrid_Loaded">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="107*"/>
+            <ColumnDefinition Width="23*"/>
+        </Grid.ColumnDefinitions>
         <DockPanel LastChildFill="False" Grid.ColumnSpan="2">
             <Frame x:Name="ContentFrame" Width="510" NavigationUIVisibility="Hidden"/>
         </DockPanel>
