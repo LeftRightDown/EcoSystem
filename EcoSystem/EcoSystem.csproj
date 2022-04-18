@@ -55,11 +55,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Utility\CountUI.cs" />
     <Compile Include="People\IExchange.cs" />
     <Compile Include="Organisms\Entity.cs" />
     <Compile Include="Environment\Game.cs" />
     <Compile Include="Environment\Item.cs" />
     <Compile Include="People\Vendor.cs" />
+    <Compile Include="Utility\Counter.cs" />
     <Compile Include="XAML\StartInterface.xaml.cs">
       <DependentUpon>StartInterface.xaml</DependentUpon>
     </Compile>
@@ -112,6 +114,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="EcosystemDiagram.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

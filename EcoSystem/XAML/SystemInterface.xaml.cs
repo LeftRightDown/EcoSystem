@@ -20,9 +20,13 @@ namespace EcoSystem
     /// <summary>
     /// Interaction logic for SystemInterface.xaml
     /// </summary>
+    
     public partial class SystemInterface : Page
     {
+
+
         //Declaring Timer Properties
+        CountUI count;
         DispatcherTimer timer;
         TimeSpan timeSpan;
         int DayNumber = 1;
@@ -35,7 +39,7 @@ namespace EcoSystem
         private Item Input;
         private delegate void BuyAndSell(string itemName, Persons Seller, Persons Buyer, List<Item> SellerList, List<Item> BuyerList);
         
-
+        
         public SystemInterface()
         {
             InitializeComponent();
@@ -44,13 +48,14 @@ namespace EcoSystem
         private void SystemGrid_Loaded(object sender, RoutedEventArgs e)
         {
             daynumberTxt.Text = $"Day: {DayNumber}";
-            Counter();
+            Timer();
             ButtoneNextDay.Content = "Next Day";
+
 
         }
         #region "Timer"
         //Creates Timer
-        private void Counter()
+        private void Timer()
         {
             //DispatchTimer example by kmatyaszek (https://stackoverflow.com/users/1410998/kmatyaszek)
             timeSpan = TimeSpan.FromSeconds(10);
@@ -80,22 +85,26 @@ namespace EcoSystem
         private void NextDay()
         {
             //next day code
-
             DayNumber++;
             daynumberTxt.Text = $"Day: {DayNumber}";
 
-            Counter();
+            Timer();
         }
         //Calls NextDay Method when clicked
         private void ButtoneNextDay_Click(object sender, RoutedEventArgs e)
         {
             NextDay();
+            
             ButtoneNextDay.Visibility=Visibility.Hidden;
+            UpdateEnvironmentLog();
+            
         }
         #endregion
 
         //Environment TAB
         #region "Environment"
+
+
 
         #region "Buttons"
         //Buttons Located inside Environment tab for player actions
@@ -128,53 +137,35 @@ namespace EcoSystem
         private void EnvironmentGrid_Loaded(object sender, RoutedEventArgs e)
         {
             //batImage.Source = new BitmapImage(new Uri(MainWindow.game.Organisms[currentSelection].ImagePath));
-            
+
             //Setting Up information being displayed on Environment Tab
-
-            //Producers
-            cornTxt.Text = $@"Name: {MainWindow.game.Organisms[0].Name} {Environment.NewLine} Amount: {MainWindow.game.Organisms[0].Amount}";
-            cottonTxt.Text = $@"Name: {MainWindow.game.Organisms[1].Name} {Environment.NewLine} Amount: {MainWindow.game.Organisms[1].Amount}";
-
-            cornIndicator.Fill = GetConsumerStatusColor(MainWindow.game.Organisms[0].Amount, MainWindow.game.Organisms[0]);
-            cottonIndicator.Fill = GetConsumerStatusColor(MainWindow.game.Organisms[1].Amount, MainWindow.game.Organisms[1]);
-           
-            //Decomposers
-            beetleTxt1.Text = $@"Name: {MainWindow.game.Organisms[6].Name} {Environment.NewLine} Amount: {MainWindow.game.Organisms[6].Amount}";
-            beetleTxt2.Text = $@"Name: {MainWindow.game.Organisms[7].Name} {Environment.NewLine} Amount: {MainWindow.game.Organisms[7].Amount}";
-            
-            beetleIndicator1.Fill = GetDecomposerStatusColor(MainWindow.game.Organisms[6].Amount, MainWindow.game.Organisms[6]);
-            beetleIndicator2.Fill = GetDecomposerStatusColor(MainWindow.game.Organisms[7].Amount, MainWindow.game.Organisms[7]);
-            
-            //Producers
-            batTxt.Text = $@"Name: {MainWindow.game.Organisms[4].Name} {Environment.NewLine} Amount: {MainWindow.game.Organisms[4].Amount}";
-            hawkTxt.Text = $@"Name: {MainWindow.game.Organisms[5].Name} {Environment.NewLine} Amount: {MainWindow.game.Organisms[5].Amount}";
-            wormTxt1.Text = $@"Name: {MainWindow.game.Organisms[2].Name} {Environment.NewLine} Amount: {MainWindow.game.Organisms[2].Amount}";
-            wormTxt2.Text = $@"Name: {MainWindow.game.Organisms[3].Name} {Environment.NewLine} Amount: {MainWindow.game.Organisms[3].Amount}";
-
-            batIndicator.Fill = GetProducerStatusColor(MainWindow.game.Organisms[4].Amount, MainWindow.game.Organisms[4]);
-            hawkIndicator.Fill = GetProducerStatusColor(MainWindow.game.Organisms[5].Amount, MainWindow.game.Organisms[5]);
-            wormIndicator1.Fill = GetProducerStatusColor(MainWindow.game.Organisms[2].Amount, MainWindow.game.Organisms[2]);
-            wormIndicator2.Fill = GetProducerStatusColor(MainWindow.game.Organisms[3].Amount, MainWindow.game.Organisms[3]);
+            SetEntityTxt();
+            SetEntityIndicator();
             
         }
 
+        #region "Status Color"
 
         //Change Indicator Color for Producers
         private Brush GetProducerStatusColor(int amount, Entity entity)
         {
-          ;
+
             if (entity.Type == "Producer")
             {
                 if (amount <= 300)
                 {
+                    entity.EntityStatus = Entity.Status.Unbalanced;
                     return new SolidColorBrush(Colors.Red);
+                    
                 }
                 else if (amount <= 500)
                 {
+                    entity.EntityStatus = Entity.Status.Ok;
                     return new SolidColorBrush(Colors.Yellow);
                 }
                 else if (amount >= 1000)
                 {
+                    entity.EntityStatus = Entity.Status.Balanced;
                     return new SolidColorBrush(Colors.Green);
                 }
 
@@ -185,6 +176,7 @@ namespace EcoSystem
         //Change Indicator Color for Consumers
         private Brush GetConsumerStatusColor(int amount, Entity entity)
         {
+
             if (entity.Type == "Consumer")
             {
                 if (entity.Name == "Red-tailed hawk")
@@ -247,11 +239,77 @@ namespace EcoSystem
 
         #endregion
 
+        #region "Entity Info"
+        public void SetEntityTxt()
+        {
+
+            //Producers
+            cornTxt.Text = $@"Name: {MainWindow.game.Organisms[0].Name} {Environment.NewLine} Amount: {MainWindow.game.Organisms[0].Amount}";
+            cottonTxt.Text = $@"Name: {MainWindow.game.Organisms[1].Name} {Environment.NewLine} Amount: {MainWindow.game.Organisms[1].Amount}";
+
+           
+
+            //Decomposers
+            beetleTxt1.Text = $@"Name: {MainWindow.game.Organisms[6].Name} {Environment.NewLine} Amount: {MainWindow.game.Organisms[6].Amount}";
+            beetleTxt2.Text = $@"Name: {MainWindow.game.Organisms[7].Name} {Environment.NewLine} Amount: {MainWindow.game.Organisms[7].Amount}";
+
+       
+
+            //Consumers
+            batTxt.Text = $@"Name: {MainWindow.game.Organisms[4].Name} {Environment.NewLine} Amount: {MainWindow.game.Organisms[4].Amount}";
+            hawkTxt.Text = $@"Name: {MainWindow.game.Organisms[5].Name} {Environment.NewLine} Amount: {MainWindow.game.Organisms[5].Amount}";
+            wormTxt1.Text = $@"Name: {MainWindow.game.Organisms[2].Name} {Environment.NewLine} Amount: {MainWindow.game.Organisms[2].Amount}";
+            wormTxt2.Text = $@"Name: {MainWindow.game.Organisms[3].Name} {Environment.NewLine} Amount: {MainWindow.game.Organisms[3].Amount}";
+
+          
+        }
+
+        public void SetEntityIndicator()
+        {
+            //Producers
+            cornIndicator.Fill = GetConsumerStatusColor(MainWindow.game.Organisms[0].Amount, MainWindow.game.Organisms[0]);
+            cottonIndicator.Fill = GetConsumerStatusColor(MainWindow.game.Organisms[1].Amount, MainWindow.game.Organisms[1]);
+
+            //Decomposers
+            beetleIndicator1.Fill = GetDecomposerStatusColor(MainWindow.game.Organisms[6].Amount, MainWindow.game.Organisms[6]);
+            beetleIndicator2.Fill = GetDecomposerStatusColor(MainWindow.game.Organisms[7].Amount, MainWindow.game.Organisms[7]);
+
+            //Consumers
+            batIndicator.Fill = GetProducerStatusColor(MainWindow.game.Organisms[4].Amount, MainWindow.game.Organisms[4]);
+            hawkIndicator.Fill = GetProducerStatusColor(MainWindow.game.Organisms[5].Amount, MainWindow.game.Organisms[5]);
+            wormIndicator1.Fill = GetProducerStatusColor(MainWindow.game.Organisms[2].Amount, MainWindow.game.Organisms[2]);
+            wormIndicator2.Fill = GetProducerStatusColor(MainWindow.game.Organisms[3].Amount, MainWindow.game.Organisms[3]);
+        }
+        private void UpdateEnvironmentLog()
+        {
+            foreach (Entity e in MainWindow.game.Organisms)
+            {
+                if (e.Species.ToLower() != "human")
+                {
+                    UpdateEntityLogInfo(e);
+                }
+            }
+        }
+
+        private void UpdateEntityLogInfo(Entity entity)
+        {
+            entity.PopulationChange += entity.Entity_PopulationChanged;
+
+            if (entity.EntityStatus == Entity.Status.Unbalanced)
+            {
+                LogTxt.Text += $"{entity.Name} populuation is decreasing";
+            }
+        }
+        #endregion
+
+        #endregion
+
+
         #endregion
 
         //Vendor TAB
         #region "Vendor"
-       void BuyGrid_Loaded(object sender, RoutedEventArgs e)
+        void BuyGrid_Loaded(object sender, RoutedEventArgs e)
        {
          DataContext = MainWindow.vendor.Inventory[index];
          System.Diagnostics.Debug.WriteLine($"LOADING BUYTAB");
@@ -274,10 +332,10 @@ namespace EcoSystem
             {
                 case "ButtonBuy":
                     //Player Buys Item from Vendor
-                    Input = DataContext;
-                    System.Diagnostics.Debug.WriteLine($"{DataContext.ToString()} databinded items");
-                    VendorSell(Input, MainWindow.player, MainWindow.vendor, MainWindow.vendor.Inventory, MainWindow.player.Inventory);
-                    
+                    //Input = ;
+                    //System.Diagnostics.Debug.WriteLine($"{DataContext.ToString()} databinded items");
+                    //VendorSell(Input, MainWindow.player, MainWindow.vendor, MainWindow.vendor.Inventory, MainWindow.player.Inventory);
+
                     break;
                 case "ButtonSell":
 

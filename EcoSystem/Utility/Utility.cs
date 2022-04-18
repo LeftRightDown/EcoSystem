@@ -8,6 +8,11 @@ namespace EcoSystem
 {
     public class Utility
     {
+        //public static void PrintMain(string output)
+        //{
+        //    ((MainWindow)System.Windows.Application.Current.MainWindow)+= output;
+
+        //}
         public static Item SearchInventory(string ItemName, List<Item> list)
         {
 
