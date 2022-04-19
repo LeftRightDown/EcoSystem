@@ -1,8 +1,0 @@
-<environment>
-	<item name ="Pesticide"  description="A spray of chemicals that protects crops from pest; Last for only 2 days"  price="5" quantity="2" image="">
-	</item>
-	<item name ="Hawk Deterrent"  description="An Owl decoy that keeps the big bad hawks away; Last for only 1 day"  price="10" quantity="1" image="">
-	</item>
-	<item name ="Seeds"  description="3 Types of Seeds: Corn (10), Cotton (10), and Guano (10)"  price="8" quantity="30" image="">
-	</item>
-</environment>

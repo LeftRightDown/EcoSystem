@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace EcoSystem
 {
@@ -35,5 +36,31 @@ namespace EcoSystem
 
 
         }
+        public static Brush GetStatusColor(Entity entity)
+        {
+            if (entity.EntityStatus == Status.Unbalanced)
+            {
+                return new SolidColorBrush(Colors.Red);
+            }
+            else if (entity.EntityStatus == Status.Ok)
+            {
+                return new SolidColorBrush(Colors.Yellow);
+            }
+            else if (entity.EntityStatus == Status.Balanced)
+            {
+                return new SolidColorBrush(Colors.Green);
+            }
+            return new SolidColorBrush(Colors.Green);
+
+        }
+
+        public static void CheckRatio(Entity entityOne, Entity entityTwo)
+        {
+            if (Ratio.GetRatio(entityOne.Amount, entityTwo.Amount) >= entityOne.FoodAmount)
+            {
+
+            }
+        }
     }
 }
+

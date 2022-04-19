@@ -35,8 +35,8 @@ namespace EcoSystem
         private void MainWindowGrid_Loaded(object sender, RoutedEventArgs e)
         {
             ContentFrame.Navigate(new StartInterface());
-            player.Inventory = LoadData.LoadItems("../../data/PlayerItems.xml");
-            vendor.Inventory = LoadData.LoadItems("../../data/VendorItems.xml");
+            player.Inventory = LoadData.LoadItems("data/PlayerItems.xml");
+            vendor.Inventory = LoadData.LoadItems("data/VendorItems.xml");
         }
     }
 }

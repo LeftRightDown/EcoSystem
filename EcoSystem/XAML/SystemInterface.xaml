@@ -21,8 +21,8 @@
                     <Button x:Name="ButtonHawkDeterrent" Content="Hawk Deterrent" HorizontalAlignment="Left" Margin="344,448,0,0" VerticalAlignment="Top" Height="20" Width="104" Click="EnvironmentTabButtons_Click" Grid.ColumnSpan="2"/>
                     <Canvas x:Name="ProducersCanvas" Margin="0,0,234,306">
                         <TextBlock x:Name="producersTxt" TextWrapping="Wrap" Text="Producers" HorizontalAlignment="Left" Canvas.Left="14" Canvas.Top="11" VerticalAlignment="Top" FontSize="18" FontFamily="Arial Black" FontWeight="Bold"/>
-                        <Image x:Name="cornImage" Height="43" Source="/Images/corn.png" Width="48" HorizontalAlignment="Left" Canvas.Left="21" Canvas.Top="28" VerticalAlignment="Top"/>
-                        <Image x:Name="cottonImage" Height="43" Width="43" Source="/Images/cotton.png" HorizontalAlignment="Left" Canvas.Left="21" Canvas.Top="99" VerticalAlignment="Top"/>
+                        <Image x:Name="cornImage" Height="43" Width="48" HorizontalAlignment="Left" Canvas.Left="21" Canvas.Top="28" VerticalAlignment="Top" Source="/Images/corn.png"/>
+                        <Image x:Name="cottonImage" Height="43" Width="43" HorizontalAlignment="Left" Canvas.Left="21" Canvas.Top="99" VerticalAlignment="Top" Source="/Images/cotton.png"/>
                         <Rectangle x:Name="cornIndicator" Height="10" Stroke="Black" Width="60" Fill="#FF09FF0C" HorizontalAlignment="Left" Canvas.Left="14" Canvas.Top="75" VerticalAlignment="Top"/>
                         <Rectangle x:Name="cottonIndicator" Height="10" Stroke="Black" Width="60" Fill="#FF09FF0C" HorizontalAlignment="Left" Canvas.Left="14" Canvas.Top="142" VerticalAlignment="Top"/>
                         <TextBlock x:Name="cornTxt" TextWrapping="Wrap" Text="TextBlock" Width="107" HorizontalAlignment="Center" Height="40" Canvas.Left="85" Canvas.Top="37" VerticalAlignment="Top" TextAlignment="Center"/>
@@ -30,17 +30,17 @@
                     </Canvas>
                     <Canvas x:Name="DecomposersCanvas" Margin="207,7,0,284">
                         <TextBlock x:Name="decomposerTxt" TextWrapping="Wrap" Text="Decomposers" HorizontalAlignment="Left" Canvas.Left="55" Canvas.Top="4" VerticalAlignment="Center" FontSize="18" FontFamily="Arial Black" FontWeight="Bold"/>
-                        <Image x:Name="beetleImage" Height="46" Width="48" Source="/Images/beetle.png" HorizontalAlignment="Left" Canvas.Left="23" Canvas.Top="27" VerticalAlignment="Top"/>
+                        <Image x:Name="beetleImage" Height="46" Width="48" HorizontalAlignment="Left" Canvas.Left="23" Canvas.Top="27" VerticalAlignment="Top" Source="/Images/beetle.png"/>
                         <Rectangle x:Name="beetleIndicator1" Height="10" Stroke="Black" Width="60" Fill="#FF09FF0C" HorizontalAlignment="Left" Canvas.Left="10" Canvas.Top="78" VerticalAlignment="Center"/>
                         <TextBlock x:Name="beetleTxt1" TextWrapping="Wrap" Text="TextBlock" Height="41" Width="144" HorizontalAlignment="Left" Canvas.Left="82" Canvas.Top="32" VerticalAlignment="Center" TextAlignment="Center"/>
                         <TextBlock x:Name="beetleTxt2" TextWrapping="Wrap" Text="TextBlock" Height="41" Width="136" HorizontalAlignment="Left" Canvas.Left="83" Canvas.Top="125" VerticalAlignment="Center" TextAlignment="Center"/>
                         <Rectangle x:Name="beetleIndicator2" Height="10" Stroke="Black" Width="60" Fill="#FF09FF0C" HorizontalAlignment="Center" Canvas.Left="10" Canvas.Top="159" VerticalAlignment="Top"/>
-                        <Image x:Name="beetleImage_Copy" Height="46" Width="48" Source="/Images/beetle.png" Canvas.Left="23" Canvas.Top="108" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        <Image x:Name="beetleImage_Copy" Height="46" Width="48" Canvas.Left="23" Canvas.Top="108" HorizontalAlignment="Left" VerticalAlignment="Center" Source="/Images/beetle.png"/>
                     </Canvas>
                     <Canvas x:Name="ConsumersCanvas" Margin="0,178,0,52">
-                        <Image x:Name="batImage" Height="73" Width="72" Source="/Images/bat.png" HorizontalAlignment="Center" Canvas.Left="24" Canvas.Top="22" VerticalAlignment="Center"/>
-                        <Image x:Name="hawkImage" Height="49" Width="54" Source="/Images/hawk.png" HorizontalAlignment="Left" Canvas.Top="28" VerticalAlignment="Center" Canvas.Left="175"/>
-                        <Image x:Name="wormImage" Height="50" Width="53" Source="/Images/worm.png" HorizontalAlignment="Left" Canvas.Left="30" Canvas.Top="144" VerticalAlignment="Top" RenderTransformOrigin="0.659,0.629"/>
+                        <Image x:Name="batImage" Height="73" Width="72" HorizontalAlignment="Center" Canvas.Left="24" Canvas.Top="22" VerticalAlignment="Center" Source="/Images/bat.png"/>
+                        <Image x:Name="hawkImage" Height="49" Width="54" HorizontalAlignment="Left" Canvas.Top="28" VerticalAlignment="Center" Canvas.Left="175" Source="/Images/hawk.png"/>
+                        <Image x:Name="wormImage" Height="50" Width="53" HorizontalAlignment="Left" Canvas.Left="30" Canvas.Top="144" VerticalAlignment="Top" RenderTransformOrigin="0.659,0.629" Source="/Images/worm.png"/>
                         <Rectangle x:Name="batIndicator" Height="10" Stroke="Black" Width="60" Fill="#FF09FF0C" HorizontalAlignment="Left" Canvas.Left="30" Canvas.Top="77" VerticalAlignment="Top"/>
                         <Rectangle x:Name="hawkIndicator" Height="10" Stroke="Black" Width="60" Fill="#FF09FF0C" HorizontalAlignment="Left" Canvas.Left="175" Canvas.Top="82" VerticalAlignment="Top"/>
                         <Rectangle x:Name="wormIndicator1" Height="10" Stroke="Black" Width="60" Fill="#FF09FF0C" HorizontalAlignment="Left" Canvas.Left="156" Canvas.Top="186" VerticalAlignment="Center" RadiusX="0" RadiusY="0"/>
@@ -50,10 +50,14 @@
                         <TextBlock x:Name="wormTxt2" TextWrapping="Wrap" Text="TextBlock" Height="44" Width="141" HorizontalAlignment="Left" Canvas.Left="3" Canvas.Top="206" VerticalAlignment="Center" TextAlignment="Center"/>
                         <Rectangle x:Name="wormIndicator2" Height="10" Stroke="Black" Width="60" Fill="#FF09FF0C" HorizontalAlignment="Center" Canvas.Left="22" Canvas.Top="186" VerticalAlignment="Top"/>
                         <TextBlock x:Name="consumersTxt" TextWrapping="Wrap" Text="Consumers" Width="116" HorizontalAlignment="Left" Canvas.Left="22" Canvas.Top="10" VerticalAlignment="Center" FontSize="18" FontFamily="Arial Black" FontWeight="Bold"/>
-                        <Image x:Name="wormImage_Copy" Height="50" Width="53" Source="/Images/worm.png" Canvas.Left="160" Canvas.Top="137" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                        <TextBlock x:Name="LogTitleTxt" Canvas.Left="292" TextWrapping="Wrap" Text="Log" Canvas.Top="18" FontSize="10"/>
+                        <Image x:Name="wormImage_Copy" Height="50" Width="53" Canvas.Left="160" Canvas.Top="137" HorizontalAlignment="Left" VerticalAlignment="Center" Source="/Images/worm.png"/>
+                        <TextBlock x:Name="LogTitleTxt" Canvas.Left="282" TextWrapping="Wrap" Text="Log" Height="18" Width="29" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Top="2"/>
                     </Canvas>
-                    <TextBlock x:Name="LogTxt" TextWrapping="Wrap" Text="THIS JUST A TEST TESTING 12343 THIS IS JUST A TEST TESTING 1223 TESTING TEST TESTING HERE HERE HER" Height="211" Width="159" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="288,211,0,0" FontSize="10"/>
+                    <ScrollViewer Margin="273,195,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="243" Width="169" VerticalContentAlignment="Top">
+                        <TextBlock x:Name="LogTxt" TextWrapping="Wrap" Height="217" Width="146" FontSize="8"/>
+                    </ScrollViewer>
+
+
                 </Grid>
             </TabItem>
             <TabItem x:Name="VendorTab" Header="Vendor" RenderTransformOrigin="0.72,0.701">

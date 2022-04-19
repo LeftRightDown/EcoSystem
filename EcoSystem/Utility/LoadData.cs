@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Xml;
+using System.Windows.Media.Imaging;
 
 namespace EcoSystem
 {
@@ -52,14 +53,19 @@ namespace EcoSystem
                     temp.Species = entity.GetAttribute("species");
                     if (temp.Type != "Player" || temp.Type != "Vendor")
                     {
-                        temp.ImagePath = "Images/" + entity.GetAttribute("imagePath") + ".png";
+                        temp.ImagePath = new BitmapImage(new Uri($"Images/{entity.GetAttribute("imagePath")} .png", UriKind.Relative));
                     }
 
-
-                    if (int.TryParse(entity.GetAttribute("amount"), out int a))
+                    if (int.TryParse(entity.GetAttribute("foodamount"), out int a))
                     {
-                        temp.Amount = a;
+                        temp.FoodAmount = a;
                     }
+
+                    if (int.TryParse(entity.GetAttribute("amount"), out int b))
+                    {
+                        temp.Amount = b;
+                    }
+
                     entities.Add(temp);
                     System.Diagnostics.Debug.WriteLine("HERE ARE ENTIRES" + "" + temp);
                 }

@@ -11,7 +11,7 @@ namespace EcoSystem
     {
         public string GameName = "Ecosystem: Bracken Cave";
 
-        public List<Entity> Organisms = LoadData.LoadEntities("../../data/Entities.xml");
+        public List<Entity> Organisms = LoadData.LoadEntities("data/Entities.xml");
 
         
         

@@ -1,6 +1,0 @@
-<environment>
-	<item name ="Cotton"  description="A soft and fluffy fiber"  price="5" quantity="150" image="">
-	</item>
-	<item name ="Corn"  description="A elongated leafy stalk used to produce various foods "  price="50" quantity="100" image="">
-	</item>
-</environment>

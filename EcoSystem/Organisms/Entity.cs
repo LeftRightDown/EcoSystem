@@ -4,36 +4,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace EcoSystem
 {
-    
+        public enum Status
+        {
+            Balanced,
+            Ok, 
+            Unbalanced 
+        }
     public class Entity
     {
-        private int amount;
+        //Declaring Types
+        Producer producer = new Producer();
+        Consumer consumer = new Consumer();
+        Decomposer decomposer = new Decomposer();
 
         //Declarding properties of Entity class
+        private int amount;
+        
         public string Name;
 
         public string Type;
-       
-        public string Species;
 
-       
-      public enum Status { Balanced ,Ok, Unbalanced }
+        public string Species;
 
         public Status EntityStatus;
 
-        //{
-        //    get { return status; }
-
-        //    set
-        //    {
-        //        EntityStatus = Status.Balanced;
-        //        EntityStatus = value;
-
-        //    }
-        //}
         public int Amount
         {
             get { return amount; }
@@ -47,9 +46,9 @@ namespace EcoSystem
         }
 
         
-        public string ImagePath;
-        
-        
+        public BitmapImage ImagePath;
+
+        public int FoodAmount; 
         public event EventHandler<PopulationChangeEventArgs> PopulationChange;
 
 
@@ -62,46 +61,89 @@ namespace EcoSystem
 
         public void Entity_PopulationChanged(object sender, PopulationChangeEventArgs e)
         {
+
             if (e.LastAmount > e.NewAmount)
             {
-                if (Type == "Producer")
+                switch (Type)
                 {
-                    if (Species == "Zea mays saccharata")
-                    {
-                        
-                    }
-                    else if (Species == "Gossypium hirsutum")
-                    {
-
-                    }
+                    case "Producer":
+                        if (Amount <= 100)
+                        {
+                            EntityStatus = Status.Unbalanced;
+                        }
+                        else if (Amount <= 300)
+                        {
+                            EntityStatus = Status.Ok;
+                        }
+                        else if (Amount >= 500)
+                        {
+                            EntityStatus = Status.Balanced;
+                        }
+                        break;
+                    case "Consumer":
+                        if (Name == "Red-tailed hawk")
+                        {
+                            if (Amount >= 10)
+                            {
+                                EntityStatus = Status.Unbalanced;
+                            }
+                            else if (Amount >= 5)
+                            {
+                                EntityStatus = Status.Ok;
+                            }
+                            else if (Amount <= 1)
+                            {
+                                EntityStatus = Status.Balanced;
+                            }
+                        }
+                        else if (Name == "Brazilian bat")
+                        {
+                            if (Amount <= 10)
+                            {
+                                EntityStatus = Status.Unbalanced;
+                            }
+                            else if (Amount <= 20)
+                            {
+                                EntityStatus = Status.Ok;
+                            }
+                            else if (Amount <= 50)
+                            {
+                                EntityStatus = Status.Balanced;
+                            }
+                        }
+                        else if (Name == "Corn earworm" || Name == "Cotton Bollworm")
+                        {
+                            if (Amount <= 10)
+                            {
+                                EntityStatus = Status.Unbalanced;
+                            }
+                            else if (Amount <= 20)
+                            {
+                                EntityStatus = Status.Ok;
+                            }
+                            else if (Amount <= 40)
+                            {
+                                EntityStatus = Status.Balanced;
+                            }
+                        }
+                        break;
+                    case "Decomposer":
+                        if (Amount >= 15)
+                        {
+                            EntityStatus = Status.Unbalanced;
+                        }
+                        else if (Amount <= 10)
+                        {
+                            EntityStatus = Status.Ok;
+                        }
+                        else if (Amount <= 5)
+                        {
+                            EntityStatus = Status.Balanced;
+                        }
+                        break;
                 }
-                else if (Type == "Consumer")
-                {
-                    if (Species == "Helicoverpa zea")
-                    {
-
-                    }
-                    else if (Species == "Tadarida brasiliensis")
-                    {
-
-                    }
-                    else if (Species == "Buteo jamaicensis")
-                    {
-
-                    }
-                }
-                else if (Type == "Decomposer")
-                {
-                    if (Species == "Dermestes carnivora")
-                    {
-
-                    }
-                    else if (Species == "Jacobsoniidae")
-                    {
-
-                    }
-                }
-            }     
+ 
+            }
         }
      
      

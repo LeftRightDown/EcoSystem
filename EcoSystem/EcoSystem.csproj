@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Utility\Ratio.cs" />
     <Compile Include="Utility\CountUI.cs" />
     <Compile Include="People\IExchange.cs" />
     <Compile Include="Organisms\Entity.cs" />
@@ -124,20 +125,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\bat_bats_icon_155976.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\bat.png" />
+    <Resource Include="Images\bat_bats_icon_155976.ico" />
     <Resource Include="Images\beetle.png" />
+    <Resource Include="Images\corn.png" />
     <Resource Include="Images\cotton.png" />
     <Resource Include="Images\hawk.png" />
     <Resource Include="Images\worm.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\corn.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="XAML\bat.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -23,7 +23,10 @@ namespace EcoSystem
     
     public partial class SystemInterface : Page
     {
-
+        //Declaring Types
+        Producer producer = new Producer();
+        Consumer consumer = new Consumer();
+        Decomposer decomposer = new Decomposer();
 
         //Declaring Timer Properties
         CountUI count;
@@ -96,6 +99,7 @@ namespace EcoSystem
             NextDay();
             
             ButtoneNextDay.Visibility=Visibility.Hidden;
+           
             UpdateEnvironmentLog();
             
         }
@@ -110,12 +114,13 @@ namespace EcoSystem
         //Buttons Located inside Environment tab for player actions
         private void EnvironmentTabButtons_Click(object sender, RoutedEventArgs e)
         {
+            Entity w = new Entity();
             Button button = (Button)sender;
 
             switch (button.Name)
             {
                 case "ButtonHarvest":
-
+                    
                     break;
                 case "ButtonPlant":
 
@@ -126,118 +131,20 @@ namespace EcoSystem
                 case "ButtonHawkDeterrent":
 
                     break;
-
             }
         }
-
 
         #endregion
 
         #region "Environment Indicators/Stats"
         private void EnvironmentGrid_Loaded(object sender, RoutedEventArgs e)
         {
-            //batImage.Source = new BitmapImage(new Uri(MainWindow.game.Organisms[currentSelection].ImagePath));
-
             //Setting Up information being displayed on Environment Tab
             SetEntityTxt();
             SetEntityIndicator();
             
         }
 
-        #region "Status Color"
-
-        //Change Indicator Color for Producers
-        private Brush GetProducerStatusColor(int amount, Entity entity)
-        {
-
-            if (entity.Type == "Producer")
-            {
-                if (amount <= 300)
-                {
-                    entity.EntityStatus = Entity.Status.Unbalanced;
-                    return new SolidColorBrush(Colors.Red);
-                    
-                }
-                else if (amount <= 500)
-                {
-                    entity.EntityStatus = Entity.Status.Ok;
-                    return new SolidColorBrush(Colors.Yellow);
-                }
-                else if (amount >= 1000)
-                {
-                    entity.EntityStatus = Entity.Status.Balanced;
-                    return new SolidColorBrush(Colors.Green);
-                }
-
-            }
-             return new SolidColorBrush(Colors.Green);
-        }
-
-        //Change Indicator Color for Consumers
-        private Brush GetConsumerStatusColor(int amount, Entity entity)
-        {
-
-            if (entity.Type == "Consumer")
-            {
-                if (entity.Name == "Red-tailed hawk")
-                {
-                    if (amount >= 10)
-                    {
-                        return new SolidColorBrush(Colors.Red);
-                    }
-                    else if (amount >= 5)
-                    {
-                        return new SolidColorBrush(Colors.Yellow);
-                    }
-                    else if (amount <= 1)
-                    {
-                        return new SolidColorBrush(Colors.Green);
-                    }
-                }
-                else
-                {
-                    if (amount <= 50)
-                    {
-                        return new SolidColorBrush(Colors.Red);
-                    }
-                    else if (amount <= 90)
-                    {
-                        return new SolidColorBrush(Colors.Yellow);
-                    }
-                    else if (amount <= 250)
-                    {
-                        return new SolidColorBrush(Colors.Green);
-                    }
-                }
-                
-
-            }
-            return new SolidColorBrush(Colors.Green);
-        }
-
-        //Change Indicator colors for Decomposers.
-        private Brush GetDecomposerStatusColor(int amount, Entity entity)
-        {
-            if (entity.Type == "Decomposer")
-            {
-                if (amount >= 10)
-                {
-                    return new SolidColorBrush(Colors.Red);
-                }
-                else if (amount >= 6)
-                {
-                    return new SolidColorBrush(Colors.Yellow);
-                }
-                else if (amount <= 5)
-                {
-                    return new SolidColorBrush(Colors.Green);
-                }
-            }
-            return new SolidColorBrush(Colors.Green);
-
-        }
-
-        #endregion
 
         #region "Entity Info"
         public void SetEntityTxt()
@@ -247,13 +154,9 @@ namespace EcoSystem
             cornTxt.Text = $@"Name: {MainWindow.game.Organisms[0].Name} {Environment.NewLine} Amount: {MainWindow.game.Organisms[0].Amount}";
             cottonTxt.Text = $@"Name: {MainWindow.game.Organisms[1].Name} {Environment.NewLine} Amount: {MainWindow.game.Organisms[1].Amount}";
 
-           
-
             //Decomposers
             beetleTxt1.Text = $@"Name: {MainWindow.game.Organisms[6].Name} {Environment.NewLine} Amount: {MainWindow.game.Organisms[6].Amount}";
             beetleTxt2.Text = $@"Name: {MainWindow.game.Organisms[7].Name} {Environment.NewLine} Amount: {MainWindow.game.Organisms[7].Amount}";
-
-       
 
             //Consumers
             batTxt.Text = $@"Name: {MainWindow.game.Organisms[4].Name} {Environment.NewLine} Amount: {MainWindow.game.Organisms[4].Amount}";
@@ -265,25 +168,28 @@ namespace EcoSystem
         }
 
         public void SetEntityIndicator()
-        {
-            //Producers
-            cornIndicator.Fill = GetConsumerStatusColor(MainWindow.game.Organisms[0].Amount, MainWindow.game.Organisms[0]);
-            cottonIndicator.Fill = GetConsumerStatusColor(MainWindow.game.Organisms[1].Amount, MainWindow.game.Organisms[1]);
+        {  
+            //Producers 
+            cornIndicator.Fill = Utility.GetStatusColor(MainWindow.game.Organisms[0]);
+            cottonIndicator.Fill = Utility.GetStatusColor(MainWindow.game.Organisms[1]);
 
             //Decomposers
-            beetleIndicator1.Fill = GetDecomposerStatusColor(MainWindow.game.Organisms[6].Amount, MainWindow.game.Organisms[6]);
-            beetleIndicator2.Fill = GetDecomposerStatusColor(MainWindow.game.Organisms[7].Amount, MainWindow.game.Organisms[7]);
+            beetleIndicator1.Fill = Utility.GetStatusColor(MainWindow.game.Organisms[6]);
+            beetleIndicator2.Fill = Utility.GetStatusColor(MainWindow.game.Organisms[7]);
 
             //Consumers
-            batIndicator.Fill = GetProducerStatusColor(MainWindow.game.Organisms[4].Amount, MainWindow.game.Organisms[4]);
-            hawkIndicator.Fill = GetProducerStatusColor(MainWindow.game.Organisms[5].Amount, MainWindow.game.Organisms[5]);
-            wormIndicator1.Fill = GetProducerStatusColor(MainWindow.game.Organisms[2].Amount, MainWindow.game.Organisms[2]);
-            wormIndicator2.Fill = GetProducerStatusColor(MainWindow.game.Organisms[3].Amount, MainWindow.game.Organisms[3]);
+            batIndicator.Fill = Utility.GetStatusColor(MainWindow.game.Organisms[4]);
+            hawkIndicator.Fill = Utility.GetStatusColor(MainWindow.game.Organisms[5]);
+            wormIndicator1.Fill = Utility.GetStatusColor(MainWindow.game.Organisms[2]);
+            wormIndicator2.Fill = Utility.GetStatusColor(MainWindow.game.Organisms[3]);
+
+           
         }
         private void UpdateEnvironmentLog()
         {
             foreach (Entity e in MainWindow.game.Organisms)
             {
+                System.Diagnostics.Debug.WriteLine($" {e.EntityStatus}");
                 if (e.Species.ToLower() != "human")
                 {
                     UpdateEntityLogInfo(e);
@@ -294,16 +200,19 @@ namespace EcoSystem
         private void UpdateEntityLogInfo(Entity entity)
         {
             entity.PopulationChange += entity.Entity_PopulationChanged;
-
-            if (entity.EntityStatus == Entity.Status.Unbalanced)
+            
+            if (entity.EntityStatus == Status.Unbalanced)
             {
-                LogTxt.Text += $"{entity.Name} populuation is decreasing";
+                LogTxt.Text += $" Day: {DayNumber} ALERT {entity.Name} populuation {entity.EntityStatus} {Environment.NewLine}";
+            }
+            else if (entity.EntityStatus == Status.Ok  || entity.EntityStatus == Status.Balanced)
+            {
+                LogTxt.Text += $" Day: {DayNumber} {entity.Name} populuation {entity.EntityStatus} {Environment.NewLine}";
             }
         }
         #endregion
 
         #endregion
-
 
         #endregion
 

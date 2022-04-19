@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace EcoSystem
 {
-    public class Consumer: Entity
+    public class Consumer : Entity
     {
+
     }
+     
 }
