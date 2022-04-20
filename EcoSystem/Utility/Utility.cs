@@ -9,14 +9,14 @@ namespace EcoSystem
 {
     public class Utility
     {
-        //public static void PrintMain(string output)
+        //public static void PrintLog(string output)
         //{
-        //    ((MainWindow)System.Windows.Application.Current.MainWindow)+= output;
+        //    ((MainWindow)System.Windows.Application.Current.MainWindow).LogTxt.Text += output;
 
         //}
+        //Checks Persons Inventory
         public static Item SearchInventory(string ItemName, List<Item> list)
         {
-
 
             IEnumerable<Item> Search = list
                                 .Where(n => n.Name.Contains(ItemName));
@@ -28,14 +28,12 @@ namespace EcoSystem
                 {
                     return null;
                 }
-
                 return x;
                 System.Diagnostics.Debug.WriteLine("HERE IS ITEMS BEING PASSED: " + x.Name);
             }
             return null;
-
-
         }
+        //Returns color based on status indicator of entity
         public static Brush GetStatusColor(Entity entity)
         {
             if (entity.EntityStatus == Status.Unbalanced)
@@ -54,13 +52,7 @@ namespace EcoSystem
 
         }
 
-        public static void CheckRatio(Entity entityOne, Entity entityTwo)
-        {
-            if (Ratio.GetRatio(entityOne.Amount, entityTwo.Amount) >= entityOne.FoodAmount)
-            {
-
-            }
-        }
+  
     }
 }
 

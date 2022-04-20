@@ -9,15 +9,23 @@ namespace EcoSystem
 {
     public class Game
     {
+        public new Player player = new Player();
+        public new Vendor vendor = new Vendor();
         public string GameName = "Ecosystem: Bracken Cave";
 
-        public List<Entity> Organisms = LoadData.LoadEntities("data/Entities.xml");
+        public  List<Entity> Organisms = new List<Entity>();
 
-        
-        
+      
+        public void SetUpGame()
+        {
+            Organisms = LoadData.LoadEntities("data/Entities.xml");
+            player.Inventory = LoadData.LoadItems("data/PlayerItems.xml");
+            vendor.Inventory = LoadData.LoadItems("data/VendorItems.xml");
+        }
 
-        
-	
+
+
+
 
 
     }

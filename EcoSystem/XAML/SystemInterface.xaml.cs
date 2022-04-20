@@ -23,6 +23,20 @@ namespace EcoSystem
     
     public partial class SystemInterface : Page
     {
+        ////Producers
+        //public Entity corn = MainWindow.game.Organisms[0];
+        //public Entity cotton = MainWindow.game.Organisms[1];
+
+        ////Consumers
+        //public Entity bats = MainWindow.game.Organisms[4];
+        //public Entity hawk = MainWindow.game.Organisms[5];
+        //public Entity cornEarworm = MainWindow.game.Organisms[2];
+        //public Entity cottonBollworm = MainWindow.game.Organisms[3];
+
+        ////Decomposers
+        //public Entity dermestidBeetle = MainWindow.game.Organisms[6];
+        //public Entity guanoBeetle = MainWindow.game.Organisms[7];
+
         //Declaring Types
         Producer producer = new Producer();
         Consumer consumer = new Consumer();
@@ -46,6 +60,7 @@ namespace EcoSystem
         public SystemInterface()
         {
             InitializeComponent();
+            
         }
         //Loads Timer objects with Grid
         private void SystemGrid_Loaded(object sender, RoutedEventArgs e)
@@ -90,7 +105,9 @@ namespace EcoSystem
             //next day code
             DayNumber++;
             daynumberTxt.Text = $"Day: {DayNumber}";
-
+            producer.ProducerRatio();
+            consumer.ConsumerRatio();
+            decomposer.DecomposerRatio();
             Timer();
         }
         //Calls NextDay Method when clicked
@@ -99,7 +116,10 @@ namespace EcoSystem
             NextDay();
             
             ButtoneNextDay.Visibility=Visibility.Hidden;
-           
+
+            //Updates Txt
+            UpdateEntityTxt();
+            UpdateEntityIndicator();
             UpdateEnvironmentLog();
             
         }
@@ -140,14 +160,14 @@ namespace EcoSystem
         private void EnvironmentGrid_Loaded(object sender, RoutedEventArgs e)
         {
             //Setting Up information being displayed on Environment Tab
-            SetEntityTxt();
-            SetEntityIndicator();
+            UpdateEntityTxt();
+            UpdateEntityIndicator();
             
         }
 
 
         #region "Entity Info"
-        public void SetEntityTxt()
+        public void UpdateEntityTxt()
         {
 
             //Producers
@@ -159,7 +179,7 @@ namespace EcoSystem
             beetleTxt2.Text = $@"Name: {MainWindow.game.Organisms[7].Name} {Environment.NewLine} Amount: {MainWindow.game.Organisms[7].Amount}";
 
             //Consumers
-            batTxt.Text = $@"Name: {MainWindow.game.Organisms[4].Name} {Environment.NewLine} Amount: {MainWindow.game.Organisms[4].Amount}";
+            batTxt.Text = $@"Name: {MainWindow.game.Organisms[4].Name}{Environment.NewLine} Amount: {MainWindow.game.Organisms[4].Amount}";
             hawkTxt.Text = $@"Name: {MainWindow.game.Organisms[5].Name} {Environment.NewLine} Amount: {MainWindow.game.Organisms[5].Amount}";
             wormTxt1.Text = $@"Name: {MainWindow.game.Organisms[2].Name} {Environment.NewLine} Amount: {MainWindow.game.Organisms[2].Amount}";
             wormTxt2.Text = $@"Name: {MainWindow.game.Organisms[3].Name} {Environment.NewLine} Amount: {MainWindow.game.Organisms[3].Amount}";
@@ -167,7 +187,7 @@ namespace EcoSystem
           
         }
 
-        public void SetEntityIndicator()
+        public void UpdateEntityIndicator()
         {  
             //Producers 
             cornIndicator.Fill = Utility.GetStatusColor(MainWindow.game.Organisms[0]);
@@ -220,21 +240,21 @@ namespace EcoSystem
         #region "Vendor"
         void BuyGrid_Loaded(object sender, RoutedEventArgs e)
        {
-         DataContext = MainWindow.vendor.Inventory[index];
+         DataContext = MainWindow.game.vendor.Inventory[index];
          System.Diagnostics.Debug.WriteLine($"LOADING BUYTAB");
        }
 
         private void SellGrid_Loaded(object sender, RoutedEventArgs e)
         {
-            DataContext = MainWindow.player.Inventory[index];
+            DataContext = MainWindow.game.player.Inventory[index];
             System.Diagnostics.Debug.WriteLine($"LOADING SELLTAB");
         }
 
         //Buttons Within Vendor Tab
         private void VendorTabButtons_Click(object sender, RoutedEventArgs e)
         {
-            BuyAndSell PlayerBuy = MainWindow.vendor.Sell;
-            BuyAndSell VendorSell = MainWindow.player.Buy;
+            BuyAndSell PlayerBuy = MainWindow.game.vendor.Sell;
+            BuyAndSell VendorSell = MainWindow.game.player.Buy;
             Button button = (Button)sender;
 
             switch (button.Name)
@@ -252,21 +272,21 @@ namespace EcoSystem
                 case "BuyNextButton":
                     index++;
 
-                    if (index >= MainWindow.vendor.Inventory.Count)
+                    if (index >= MainWindow.game.vendor.Inventory.Count)
                     {
                         index = 0;
                     }
-                    DataContext = MainWindow.vendor.Inventory[index];
+                    DataContext = MainWindow.game.vendor.Inventory[index];
                     System.Diagnostics.Debug.WriteLine($"{DataContext} THIS IS WHERE VENDOR");
                     break;
                 case "SellNextButton":
                     index++;
 
-                    if (index >= MainWindow.player.Inventory.Count)
+                    if (index >= MainWindow.game.player.Inventory.Count)
                     {
                         index = 0;
                     }
-                    DataContext = MainWindow.player.Inventory[index];
+                    DataContext = MainWindow.game.player.Inventory[index];
                     System.Diagnostics.Debug.WriteLine($"{DataContext} THIS IS WHERE PLAYER");
 
                     break;
@@ -293,7 +313,7 @@ namespace EcoSystem
         {
             string output = "";
 
-            foreach (Item x in MainWindow.player.Inventory)
+            foreach (Item x in MainWindow.game.player.Inventory)
             {
                 output += $" Item: {x.Name} ({x.Quantity}) {Environment.NewLine} Price: {x.Price.ToString("c")} {Environment.NewLine} {x.Description} {Environment.NewLine} {Environment.NewLine}";
             }

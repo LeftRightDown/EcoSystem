@@ -23,8 +23,7 @@ namespace EcoSystem
     public partial class MainWindow : Window
     {
         public static Game game = new Game(); 
-        public static Player player = new Player();
-        public static Vendor vendor = new Vendor();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -35,8 +34,7 @@ namespace EcoSystem
         private void MainWindowGrid_Loaded(object sender, RoutedEventArgs e)
         {
             ContentFrame.Navigate(new StartInterface());
-            player.Inventory = LoadData.LoadItems("data/PlayerItems.xml");
-            vendor.Inventory = LoadData.LoadItems("data/VendorItems.xml");
+           game.SetUpGame();
         }
     }
 }

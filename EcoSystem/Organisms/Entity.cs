@@ -17,11 +17,7 @@ namespace EcoSystem
         }
     public class Entity
     {
-        //Declaring Types
-        Producer producer = new Producer();
-        Consumer consumer = new Consumer();
-        Decomposer decomposer = new Decomposer();
-
+      
         //Declarding properties of Entity class
         private int amount;
         
