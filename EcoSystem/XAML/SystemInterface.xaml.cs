@@ -37,10 +37,7 @@ namespace EcoSystem
         //public Entity dermestidBeetle = MainWindow.game.Organisms[6];
         //public Entity guanoBeetle = MainWindow.game.Organisms[7];
 
-        //Declaring Types
-        Producer producer = new Producer();
-        Consumer consumer = new Consumer();
-        Decomposer decomposer = new Decomposer();
+  
 
         //Declaring Timer Properties
         CountUI count;
@@ -105,9 +102,9 @@ namespace EcoSystem
             //next day code
             DayNumber++;
             daynumberTxt.Text = $"Day: {DayNumber}";
-            producer.ProducerRatio();
-            consumer.ConsumerRatio();
-            decomposer.DecomposerRatio();
+            MainWindow.game.producer.ProducerRatio();
+            MainWindow.game.consumer.ConsumerRatio();
+            MainWindow.game.decomposer.DecomposerRatio();
             Timer();
         }
         //Calls NextDay Method when clicked

@@ -17,10 +17,6 @@ namespace EcoSystem
     }
     public class Entity
     {
-        Producer producer = new Producer();
-        Consumer consumer = new Consumer();
-        Decomposer decomposer = new Decomposer();
-
         //Declarding properties of Entity class
         private int amount;
 
@@ -72,13 +68,13 @@ namespace EcoSystem
             switch (Type)
             {
                 case "Producer":
-                    producer.CheckProducerStatus();
+                    MainWindow.game.producer.CheckProducerStatus();
                     break;
                 case "Consumer":
-                    consumer.CheckConsumerStatus();
+                   MainWindow.game.consumer.CheckConsumerStatus();
                     break;
                 case "Decomposer":
-                    decomposer.CheckDecomposerStatus();
+                    MainWindow.game.decomposer.CheckDecomposerStatus();
                     break;
             }
 

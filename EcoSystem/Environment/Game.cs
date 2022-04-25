@@ -11,6 +11,9 @@ namespace EcoSystem
     {
         public Player player = new Player();
         public Vendor vendor = new Vendor();
+        public Producer producer = new Producer();
+        public Consumer consumer = new Consumer();
+        public Decomposer decomposer = new Decomposer();
         public string GameName = "Ecosystem: Bracken Cave";
 
         public  List<Entity> Organisms = new List<Entity>();
