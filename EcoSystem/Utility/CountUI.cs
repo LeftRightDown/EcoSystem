@@ -8,40 +8,46 @@ namespace EcoSystem
 {
    public class CountUI
     {
-        Counter counter;
-        Entity entity;
-        
+         Counter counter;
+
         //Code from Class 05 Demo
-        private void SetUp()
-        {
-            counter = new Counter(GetRandomNumber());
-            Run();
-        }
+        
+        //public void SetUp(Entity entity)
+        //{
+        //    counter = new Counter(GetRandomNumber());
+        //    Run(entity);
+        //}
         private int GetRandomNumber()
         {
-            return new Random().Next(5, 100);
+            return new Random().Next(5, 10);
         }
 
-        private void Run()
+        //private void Run(Entity entity)
+        //{
+        //    entity.Amount += IncrementCounter();
+        //    //counter.ThresholdReached += c_ThresholdReached;
+        //    Run(entity);
+        //}
+        public int IncrementCounter()
         {
-            entity.Amount += IncrementCounter();
-            counter.ThresholdReached += c_ThresholdReached;
-            Run();
-        }
-        private int IncrementCounter()
-        {
-         counter.Add(GetRandomNumber());
+            counter.Add(GetRandomNumber());
             return counter.Total;
         }
 
-        public void c_ThresholdReached(object sender, EventArgs e)
+        public int DecrementCounter()
         {
-            if (true)
-            {
-                
-            }
-           SetUp();
+            counter.Subtract(GetRandomNumber());
+            return counter.Total;
         }
+
+        //public void c_ThresholdReached(object sender, EventArgs e)
+        //{
+        //    if (true)
+        //    {
+                
+        //    }
+        //   SetUp();
+        //}
     }
 }
 

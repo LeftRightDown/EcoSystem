@@ -9,12 +9,9 @@ namespace EcoSystem
 {
         
     public class Producer: Entity
-{ 
-        
-
-
-
-      public void ProducerRatio()
+    {
+        Ratio Ratio = new Ratio();
+        public void ProducerRatio()
       {
                                 // Corn                     Corn Ear Worm
             Ratio.CheckRatio(MainWindow.game.Organisms[0], MainWindow.game.Organisms[2]);

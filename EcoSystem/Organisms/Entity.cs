@@ -44,7 +44,7 @@ namespace EcoSystem
         
         public BitmapImage ImagePath;
 
-        public int FoodAmount; 
+        public double FoodAmount; 
         public event EventHandler<PopulationChangeEventArgs> PopulationChange;
 
 
@@ -63,15 +63,15 @@ namespace EcoSystem
                 switch (Type)
                 {
                     case "Producer":
-                        if (Amount <= 100)
+                        if (Amount <= 100 || Amount >= 700)
                         {
                             EntityStatus = Status.Unbalanced;
                         }
-                        else if (Amount <= 300)
+                        else if (Amount <= 300 || Amount >= 600)
                         {
                             EntityStatus = Status.Ok;
                         }
-                        else if (Amount >= 500)
+                        else if (Amount <= 400 && Amount >= 500)
                         {
                             EntityStatus = Status.Balanced;
                         }
@@ -83,62 +83,64 @@ namespace EcoSystem
                             {
                                 EntityStatus = Status.Unbalanced;
                             }
-                            else if (Amount >= 5)
+                            else if (Amount >= 3 || Amount >= 0)
                             {
                                 EntityStatus = Status.Ok;
                             }
-                            else if (Amount <= 1)
+                            else if (Amount <= 2 && Amount >= 1)
                             {
                                 EntityStatus = Status.Balanced;
                             }
                         }
                         else if (Name == "Brazilian bat")
                         {
-                            if (Amount <= 10)
+                            if (Amount <= 20 || Amount >= 55)
                             {
                                 EntityStatus = Status.Unbalanced;
                             }
-                            else if (Amount <= 20)
+                            else if (Amount <= 31 || Amount >= 51)
                             {
                                 EntityStatus = Status.Ok;
                             }
-                            else if (Amount <= 50)
+                            else if (Amount >= 30 && Amount <= 50)
                             {
                                 EntityStatus = Status.Balanced;
                             }
                         }
                         else if (Name == "Corn earworm" || Name == "Cotton Bollworm")
                         {
-                            if (Amount <= 10)
+                            if (Amount >= 55)
                             {
                                 EntityStatus = Status.Unbalanced;
                             }
-                            else if (Amount <= 20)
+                            else if (Amount >= 41 || Amount <= 5)
                             {
                                 EntityStatus = Status.Ok;
                             }
-                            else if (Amount <= 40)
+                            else if (Amount >= 10 && Amount <= 40)
                             {
                                 EntityStatus = Status.Balanced;
                             }
                         }
                         break;
                     case "Decomposer":
-                        if (Amount >= 15)
+                        if (Amount >= 26)
                         {
                             EntityStatus = Status.Unbalanced;
                         }
-                        else if (Amount <= 10)
+                        else if (Amount >= 21 || Amount <= 25)
                         {
                             EntityStatus = Status.Ok;
                         }
-                        else if (Amount <= 5)
+                        else if (Amount >= 10 && Amount <= 20)
                         {
                             EntityStatus = Status.Balanced;
                         }
                         break;
                 }
- 
+
+
+
             }
         }
      

@@ -9,7 +9,7 @@ namespace EcoSystem
 {
     public class Decomposer : Entity
     {
-     
+        Ratio Ratio = new Ratio();
         public void DecomposerRatio()
         {
                                 //dermstidBeetle            Bat

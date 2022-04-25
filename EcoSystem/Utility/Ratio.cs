@@ -8,33 +8,58 @@ namespace EcoSystem
 {
     class Ratio
     {
-
+         CountUI count = new CountUI();
+       
         //Creates population ratio between entities (From Canvas Ratio page) 
         public static double GetRatio(int entityOne, int entityTwo)
         {
             return(entityOne/entityTwo);
         }
-
+        
         //Checks Ratio Between entity and food soruce from Canvas Page
-        public static void CheckRatio(Entity entityOne, Entity entityTwo)
+        public void CheckRatio(Entity entityOne, Entity entityTwo)
         {
-            //
+            
+
             if (GetRatio(entityOne.Amount, entityTwo.Amount) >= entityOne.FoodAmount)
             {
+                
+                System.Diagnostics.Debug.WriteLine($"{entityOne.Amount}Food bEFORE");
                 //enough food
-                //entity one plus the amount needed to increase
-                entityOne.Amount += entityOne.FoodAmount;
-                //entity two minus the amount needed to increase
-                entityTwo.Amount -= entityOne.FoodAmount;
+                if (entityOne.Amount >= 0 && entityTwo.Amount >= 0)
+                {
+                    //entity one plus random number
+                    entityOne.Amount += count.IncrementCounter();
+                    //entity two minus  random number
+                    entityTwo.Amount -= count.DecrementCounter();
+                    System.Diagnostics.Debug.WriteLine($"{entityOne.Amount} Food aFTER");
+                }
+                else
+                {
+                    entityOne.Amount += 1;
+                    System.Diagnostics.Debug.WriteLine($"{entityOne.Amount} += 1");
+                }
+              
                
             }
             else
             {
-                //not enough food
-                //entity one minus total amount needed to increase
-                entityOne.Amount -= entityOne.FoodAmount;
-                //entity two plus the total amount needed to increase
-                entityTwo.Amount += entityTwo.FoodAmount;
+                if (entityOne.Amount >= 0 && entityTwo.Amount >= 0)
+                {
+                    System.Diagnostics.Debug.WriteLine($"{entityOne.Amount}No Food bEFORE");
+                    //not enough food
+
+                    //entity one plus random number
+                    entityOne.Amount += count.IncrementCounter();
+                    //entity two minus  random number
+                    entityTwo.Amount -= count.DecrementCounter();
+                    System.Diagnostics.Debug.WriteLine($"{entityOne.Amount}No Food After aFTER");
+                }
+                else
+                {
+                    entityOne.Amount = 0;
+                    System.Diagnostics.Debug.WriteLine($"{entityOne.Amount} += 1");
+                }
                 
                
                 

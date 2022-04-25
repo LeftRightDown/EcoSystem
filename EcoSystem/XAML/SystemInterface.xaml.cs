@@ -69,14 +69,13 @@ namespace EcoSystem
             Timer();
             ButtoneNextDay.Content = "Next Day";
 
-
         }
         #region "Timer"
         //Creates Timer
         private void Timer()
         {
             //DispatchTimer example by kmatyaszek (https://stackoverflow.com/users/1410998/kmatyaszek)
-            timeSpan = TimeSpan.FromSeconds(10);
+            timeSpan = TimeSpan.FromSeconds(1);
 
             timer = new DispatcherTimer(
                 new TimeSpan(0, 0, 1),
@@ -118,9 +117,10 @@ namespace EcoSystem
             ButtoneNextDay.Visibility=Visibility.Hidden;
 
             //Updates Txt
+            UpdateEnvironmentLog();
             UpdateEntityTxt();
             UpdateEntityIndicator();
-            UpdateEnvironmentLog();
+            
             
         }
         #endregion
@@ -220,7 +220,8 @@ namespace EcoSystem
         private void UpdateEntityLogInfo(Entity entity)
         {
             entity.PopulationChange += entity.Entity_PopulationChanged;
-            
+
+            System.Diagnostics.Debug.WriteLine($"{entity.Name} {entity.EntityStatus}");
             if (entity.EntityStatus == Status.Unbalanced)
             {
                 LogTxt.Text += $" Day: {DayNumber} ALERT {entity.Name} populuation {entity.EntityStatus} {Environment.NewLine}";
