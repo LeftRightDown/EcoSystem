@@ -34,7 +34,7 @@ namespace EcoSystem
         private void MainWindowGrid_Loaded(object sender, RoutedEventArgs e)
         {
             ContentFrame.Navigate(new StartInterface());
-           game.SetUpGame();
+            game.SetUpGame();
         }
     }
 }

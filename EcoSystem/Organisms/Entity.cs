@@ -9,18 +9,21 @@ using System.Windows.Media.Imaging;
 
 namespace EcoSystem
 {
-        public enum Status
-        {
-            Balanced,
-            Ok, 
-            Unbalanced 
-        }
+    public enum Status
+    {
+        Balanced,
+        Danger,
+        Unbalanced
+    }
     public class Entity
     {
-      
+        Producer producer = new Producer();
+        Consumer consumer = new Consumer();
+        Decomposer decomposer = new Decomposer();
+
         //Declarding properties of Entity class
         private int amount;
-        
+
         public string Name;
 
         public string Type;
@@ -41,10 +44,10 @@ namespace EcoSystem
             }
         }
 
-        
+
         public BitmapImage ImagePath;
 
-        public double FoodAmount; 
+        public double FoodAmount;
         public event EventHandler<PopulationChangeEventArgs> PopulationChange;
 
 
@@ -60,100 +63,36 @@ namespace EcoSystem
 
             if (e.LastAmount > e.NewAmount)
             {
-                switch (Type)
-                {
-                    case "Producer":
-                        if (Amount <= 100 || Amount >= 700)
-                        {
-                            EntityStatus = Status.Unbalanced;
-                        }
-                        else if (Amount <= 300 || Amount >= 600)
-                        {
-                            EntityStatus = Status.Ok;
-                        }
-                        else if (Amount <= 400 && Amount >= 500)
-                        {
-                            EntityStatus = Status.Balanced;
-                        }
-                        break;
-                    case "Consumer":
-                        if (Name == "Red-tailed hawk")
-                        {
-                            if (Amount >= 10)
-                            {
-                                EntityStatus = Status.Unbalanced;
-                            }
-                            else if (Amount >= 3 || Amount >= 0)
-                            {
-                                EntityStatus = Status.Ok;
-                            }
-                            else if (Amount <= 2 && Amount >= 1)
-                            {
-                                EntityStatus = Status.Balanced;
-                            }
-                        }
-                        else if (Name == "Brazilian bat")
-                        {
-                            if (Amount <= 20 || Amount >= 55)
-                            {
-                                EntityStatus = Status.Unbalanced;
-                            }
-                            else if (Amount <= 31 || Amount >= 51)
-                            {
-                                EntityStatus = Status.Ok;
-                            }
-                            else if (Amount >= 30 && Amount <= 50)
-                            {
-                                EntityStatus = Status.Balanced;
-                            }
-                        }
-                        else if (Name == "Corn earworm" || Name == "Cotton Bollworm")
-                        {
-                            if (Amount >= 55)
-                            {
-                                EntityStatus = Status.Unbalanced;
-                            }
-                            else if (Amount >= 41 || Amount <= 5)
-                            {
-                                EntityStatus = Status.Ok;
-                            }
-                            else if (Amount >= 10 && Amount <= 40)
-                            {
-                                EntityStatus = Status.Balanced;
-                            }
-                        }
-                        break;
-                    case "Decomposer":
-                        if (Amount >= 26)
-                        {
-                            EntityStatus = Status.Unbalanced;
-                        }
-                        else if (Amount >= 21 || Amount <= 25)
-                        {
-                            EntityStatus = Status.Ok;
-                        }
-                        else if (Amount >= 10 && Amount <= 20)
-                        {
-                            EntityStatus = Status.Balanced;
-                        }
-                        break;
-                }
-
-
-
+                PopulationStatus();
             }
         }
-     
-     
-    }
-    public class PopulationChangeEventArgs : EventArgs
-    {
-        public readonly int LastAmount;
-        public readonly int NewAmount;
 
-        public PopulationChangeEventArgs(int lastAmount, int newAmount)
+        private void PopulationStatus()
         {
-            LastAmount = lastAmount; NewAmount = newAmount;
+            switch (Type)
+            {
+                case "Producer":
+                    producer.CheckProducerStatus();
+                    break;
+                case "Consumer":
+                    consumer.CheckConsumerStatus();
+                    break;
+                case "Decomposer":
+                    decomposer.CheckDecomposerStatus();
+                    break;
+            }
+
+        }
+        //From Canvas Demo Page (Events)
+        public class PopulationChangeEventArgs : EventArgs
+        {
+            public readonly int LastAmount;
+            public readonly int NewAmount;
+
+            public PopulationChangeEventArgs(int lastAmount, int newAmount)
+            {
+                LastAmount = lastAmount; NewAmount = newAmount;
+            }
         }
     }
 }

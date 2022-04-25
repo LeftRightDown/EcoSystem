@@ -68,6 +68,7 @@ namespace EcoSystem
             daynumberTxt.Text = $"Day: {DayNumber}";
             Timer();
             ButtoneNextDay.Content = "Next Day";
+            
 
         }
         #region "Timer"
@@ -162,7 +163,11 @@ namespace EcoSystem
             //Setting Up information being displayed on Environment Tab
             UpdateEntityTxt();
             UpdateEntityIndicator();
-            
+            //producer.CheckProducerStatus();
+            //consumer.CheckConsumerStatus();
+            //decomposer.CheckDecomposerStatus();
+
+
         }
 
 
@@ -226,7 +231,7 @@ namespace EcoSystem
             {
                 LogTxt.Text += $" Day: {DayNumber} ALERT {entity.Name} populuation {entity.EntityStatus} {Environment.NewLine}";
             }
-            else if (entity.EntityStatus == Status.Ok  || entity.EntityStatus == Status.Balanced)
+            else if (entity.EntityStatus == Status.Danger  || entity.EntityStatus == Status.Balanced)
             {
                 LogTxt.Text += $" Day: {DayNumber} {entity.Name} populuation {entity.EntityStatus} {Environment.NewLine}";
             }

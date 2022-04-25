@@ -28,8 +28,9 @@ namespace EcoSystem
                 {
                     return null;
                 }
-                return x;
                 System.Diagnostics.Debug.WriteLine("HERE IS ITEMS BEING PASSED: " + x.Name);
+                return x;
+                
             }
             return null;
         }
@@ -40,7 +41,7 @@ namespace EcoSystem
             {
                 return new SolidColorBrush(Colors.Red);
             }
-            else if (entity.EntityStatus == Status.Ok)
+            else if (entity.EntityStatus == Status.Danger)
             {
                 return new SolidColorBrush(Colors.Yellow);
             }

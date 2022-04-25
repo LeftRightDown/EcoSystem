@@ -29,9 +29,10 @@ namespace EcoSystem
                 if (entityOne.Amount >= 0 && entityTwo.Amount >= 0)
                 {
                     //entity one plus random number
-                    entityOne.Amount += count.IncrementCounter();
                     //entity two minus  random number
+                    entityOne.Amount += count.IncrementCounter();
                     entityTwo.Amount -= count.DecrementCounter();
+                   
                     System.Diagnostics.Debug.WriteLine($"{entityOne.Amount} Food aFTER");
                 }
                 else
@@ -46,13 +47,12 @@ namespace EcoSystem
             {
                 if (entityOne.Amount >= 0 && entityTwo.Amount >= 0)
                 {
-                    System.Diagnostics.Debug.WriteLine($"{entityOne.Amount}No Food bEFORE");
                     //not enough food
+                    entityOne.Amount -= count.DecrementCounter();
+                    System.Diagnostics.Debug.WriteLine($"{entityOne.Amount}No Food bEFORE");
+                    //entity one minus random number
+                    
 
-                    //entity one plus random number
-                    entityOne.Amount += count.IncrementCounter();
-                    //entity two minus  random number
-                    entityTwo.Amount -= count.DecrementCounter();
                     System.Diagnostics.Debug.WriteLine($"{entityOne.Amount}No Food After aFTER");
                 }
                 else

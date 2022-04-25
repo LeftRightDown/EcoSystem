@@ -51,14 +51,14 @@ namespace EcoSystem
                     (@"
                      Designed and Programed By: Zachary Tan
                      Debugging & Structural Assistance from: Mack, Pearson - Muggli && Janell Baxter
-                     Additional Code reused from in class group demos.
+                     Additional Code reused from in class demos, and Microsoft Page.
                     ",
                     "CREDITS"
                     );
                     break;
 
                 case "ButtonThree":
-                    //Environment.Exit(0);
+                    Environment.Exit(0);
                     break;
             }
         }

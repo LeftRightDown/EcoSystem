@@ -21,15 +21,15 @@ namespace EcoSystem
         public void Add(int x)
         {
             total += x;
-            //if (total >= threshold)
-            //    OnThresholdReached(EventArgs.Empty);
+            if (total >= threshold)
+                OnThresholdReached(EventArgs.Empty);
         }
 
         public void Subtract(int x)
         {
             total -= x;
-            //if (total >= threshold)
-            //    OnThresholdReached(EventArgs.Empty);
+            if (total >= threshold)
+                OnThresholdReached(EventArgs.Empty);
         }
 
         protected virtual void OnThresholdReached(EventArgs e)
@@ -38,6 +38,6 @@ namespace EcoSystem
             if (handler != null)
                 handler(this, e);
         }
-        
+
     }
 }
