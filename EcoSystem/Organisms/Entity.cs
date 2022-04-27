@@ -42,7 +42,7 @@ namespace EcoSystem
         }
 
 
-        public BitmapImage ImagePath;
+        public BitmapImage ImagePath { get; set; } 
 
         public double FoodAmount;
         public event EventHandler<PopulationChangeEventArgs> PopulationChange;

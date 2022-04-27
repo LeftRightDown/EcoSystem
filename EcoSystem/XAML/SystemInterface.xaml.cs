@@ -249,11 +249,12 @@ namespace EcoSystem
 
         //Vendor TAB
         #region "Vendor"
+
+      
         void BuyGrid_Loaded(object sender, RoutedEventArgs e)
-       {
-         DataContext = MainWindow.game.vendor.Inventory[index];
-         
-       }
+        {
+         VendorInventoryCanvas.DataContext = MainWindow.game.vendor.Inventory[index];   
+        }
 
         private void SellGrid_Loaded(object sender, RoutedEventArgs e)
         {

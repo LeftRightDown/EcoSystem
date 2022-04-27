@@ -14,7 +14,7 @@ namespace EcoSystem
         public float Price { get; set; }
         public int Quantity { get; set; }
 
-        public BitmapImage ImagePath { get; set; }
+        public BitmapImage PathImage { get; set; }
 
         public string PriceDetail { get { return Price.ToString("c"); } set => Price.ToString(); }
        

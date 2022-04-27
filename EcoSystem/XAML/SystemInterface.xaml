@@ -22,8 +22,8 @@
                     <Button x:Name="ButtonHawkDeterrent" Content="Hawk Deterrent" HorizontalAlignment="Left" Margin="334,443,0,0" VerticalAlignment="Top" Height="20" Width="104" Click="EnvironmentTabButtons_Click"/>
                     <Canvas x:Name="ProducersCanvas" Margin="0,0,234,306">
                         <TextBlock x:Name="producersTxt" TextWrapping="Wrap" Text="Producers" HorizontalAlignment="Left" Canvas.Left="14" Canvas.Top="11" VerticalAlignment="Top" FontSize="18" FontFamily="Arial Black" FontWeight="Bold"/>
-                        <Image x:Name="cornImage" Height="43" Width="48" HorizontalAlignment="Left" Canvas.Left="21" Canvas.Top="28" VerticalAlignment="Top" Source="/Images/corn.png"/>
-                        <Image x:Name="cottonImage" Height="43" Width="43" HorizontalAlignment="Left" Canvas.Left="21" Canvas.Top="99" VerticalAlignment="Top" Source="/Images/cotton.png"/>
+                        <Image x:Name="cornImage" Height="43" Width="48" HorizontalAlignment="Left" Canvas.Left="21" Canvas.Top="28" VerticalAlignment="Top" Source="{Binding Path=ImagePath}"/>
+                        <Image x:Name="cottonImage" Height="43" Width="43" HorizontalAlignment="Left" Canvas.Left="21" Canvas.Top="99" VerticalAlignment="Top" Source="{Binding Path=ImagePath}"/>
                         <Rectangle x:Name="cornIndicator" Height="10" Stroke="Black" Width="60" Fill="#FF09FF0C" HorizontalAlignment="Left" Canvas.Left="14" Canvas.Top="75" VerticalAlignment="Top"/>
                         <Rectangle x:Name="cottonIndicator" Height="10" Stroke="Black" Width="60" Fill="#FF09FF0C" HorizontalAlignment="Left" Canvas.Left="14" Canvas.Top="142" VerticalAlignment="Top"/>
                         <TextBlock x:Name="cornTxt" TextWrapping="Wrap" Text="TextBlock" Width="107" HorizontalAlignment="Center" Height="40" Canvas.Left="85" Canvas.Top="37" VerticalAlignment="Top" TextAlignment="Center"/>
@@ -31,17 +31,17 @@
                     </Canvas>
                     <Canvas x:Name="DecomposersCanvas" Margin="207,7,0,284">
                         <TextBlock x:Name="decomposerTxt" TextWrapping="Wrap" Text="Decomposers" HorizontalAlignment="Left" Canvas.Left="55" Canvas.Top="4" VerticalAlignment="Center" FontSize="18" FontFamily="Arial Black" FontWeight="Bold"/>
-                        <Image x:Name="beetleImage" Height="37" Width="38" HorizontalAlignment="Left" Canvas.Left="27" Canvas.Top="32" VerticalAlignment="Top" Source="/Images/beetle.png"/>
+                        <Image x:Name="beetleImage" Height="37" Width="38" HorizontalAlignment="Left" Canvas.Left="27" Canvas.Top="32" VerticalAlignment="Top" Source="{Binding Path=ImagePath}"/>
                         <Rectangle x:Name="beetleIndicator1" Height="10" Stroke="Black" Width="60" Fill="#FF09FF0C" HorizontalAlignment="Left" Canvas.Left="10" Canvas.Top="78" VerticalAlignment="Center"/>
                         <TextBlock x:Name="beetleTxt1" TextWrapping="Wrap" Text="TextBlock" Height="41" Width="144" HorizontalAlignment="Left" Canvas.Left="82" Canvas.Top="32" VerticalAlignment="Center" TextAlignment="Center"/>
                         <TextBlock x:Name="beetleTxt2" TextWrapping="Wrap" Text="TextBlock" Height="41" Width="136" HorizontalAlignment="Left" Canvas.Left="77" Canvas.Top="103" VerticalAlignment="Top" TextAlignment="Center"/>
                         <Rectangle x:Name="beetleIndicator2" Height="10" Stroke="Black" Width="60" Fill="#FF09FF0C" HorizontalAlignment="Center" Canvas.Left="10" Canvas.Top="146" VerticalAlignment="Top"/>
-                        <Image x:Name="beetleImage_Copy" Height="37" Width="38" Canvas.Left="27" Canvas.Top="100" HorizontalAlignment="Left" VerticalAlignment="Center" Source="/Images/beetle.png"/>
+                        <Image x:Name="beetleImage_Copy" Height="37" Width="38" Canvas.Left="27" Canvas.Top="100" HorizontalAlignment="Left" VerticalAlignment="Center" Source="{Binding Path=ImagePath}"/>
                     </Canvas>
                     <Canvas x:Name="ConsumersCanvas" Margin="0,178,0,52">
-                        <Image x:Name="batImage" Height="73" Width="72" HorizontalAlignment="Center" Canvas.Left="24" Canvas.Top="22" VerticalAlignment="Center" Source="/Images/bat.png"/>
-                        <Image x:Name="hawkImage" Height="42" Width="47" HorizontalAlignment="Left" Canvas.Top="35" VerticalAlignment="Top" Canvas.Left="175" Source="/Images/hawk.png"/>
-                        <Image x:Name="wormImage" Height="50" Width="53" HorizontalAlignment="Left" Canvas.Left="30" Canvas.Top="144" VerticalAlignment="Top" RenderTransformOrigin="0.659,0.629" Source="/Images/worm.png"/>
+                        <Image x:Name="batImage" Height="73" Width="72" HorizontalAlignment="Center" Canvas.Left="24" Canvas.Top="22" VerticalAlignment="Center" Source="{Binding Path=ImagePath}"/>
+                        <Image x:Name="hawkImage" Height="42" Width="47" HorizontalAlignment="Left" Canvas.Top="35" VerticalAlignment="Top" Canvas.Left="175" Source="{Binding Path=ImagePath}"/>
+                        <Image x:Name="wormImage" Height="50" Width="53" HorizontalAlignment="Left" Canvas.Left="30" Canvas.Top="144" VerticalAlignment="Top" RenderTransformOrigin="0.659,0.629" Source="{Binding Path=ImagePath}"/>
                         <Rectangle x:Name="batIndicator" Height="10" Stroke="Black" Width="60" Fill="#FF09FF0C" HorizontalAlignment="Left" Canvas.Left="30" Canvas.Top="77" VerticalAlignment="Top"/>
                         <Rectangle x:Name="hawkIndicator" Height="10" Stroke="Black" Width="60" Fill="#FF09FF0C" HorizontalAlignment="Left" Canvas.Left="175" Canvas.Top="82" VerticalAlignment="Top"/>
                         <Rectangle x:Name="wormIndicator1" Height="10" Stroke="Black" Width="60" Fill="#FF09FF0C" HorizontalAlignment="Left" Canvas.Left="156" Canvas.Top="186" VerticalAlignment="Center" RadiusX="0" RadiusY="0"/>
@@ -51,7 +51,7 @@
                         <TextBlock x:Name="wormTxt2" TextWrapping="Wrap" Text="TextBlock" Height="44" Width="141" HorizontalAlignment="Left" Canvas.Left="3" Canvas.Top="206" VerticalAlignment="Center" TextAlignment="Center"/>
                         <Rectangle x:Name="wormIndicator2" Height="10" Stroke="Black" Width="60" Fill="#FF09FF0C" HorizontalAlignment="Center" Canvas.Left="22" Canvas.Top="186" VerticalAlignment="Top"/>
                         <TextBlock x:Name="consumersTxt" TextWrapping="Wrap" Text="Consumers" Width="116" HorizontalAlignment="Left" Canvas.Left="22" Canvas.Top="10" VerticalAlignment="Center" FontSize="18" FontFamily="Arial Black" FontWeight="Bold"/>
-                        <Image x:Name="wormImage_Copy" Height="50" Width="53" Canvas.Left="160" Canvas.Top="137" HorizontalAlignment="Left" VerticalAlignment="Center" Source="/Images/worm.png"/>
+                        <Image x:Name="wormImage_Copy" Height="50" Width="53" Canvas.Left="160" Canvas.Top="137" HorizontalAlignment="Left" VerticalAlignment="Center" Source="{Binding Path=ImagePath}"/>
                         <TextBlock x:Name="LogTitleTxt" Canvas.Left="282" TextWrapping="Wrap" Text="Log" Height="18" Width="29" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Top="2"/>
                     </Canvas>
                     <ScrollViewer Margin="273,195,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="243" Width="169" VerticalContentAlignment="Top">
@@ -68,11 +68,11 @@
                         <TabItem x:Name="BuyTab" Header="Buy" FontSize="16">
                             <Grid x:Name="BuyGrid" Loaded="BuyGrid_Loaded">
                                 <Canvas x:Name="VendorInventoryCanvas" Margin="10,10,10,10">
-                                    <TextBlock x:Name="VendorItemNameTxt" TextWrapping="Wrap" Text="{Binding Path=Name}" Height="58" Width="197" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="10" Canvas.Top="10" FontSize="24" FontWeight="Bold" FontFamily="Segoe UI Black"/>
-                                    <TextBlock x:Name="VendorItemDescriptionTxt" Canvas.Left="10" TextWrapping="Wrap" Text="{Binding Path=Description}" Canvas.Top="110" Height="174" Width="234" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Segoe UI Black" FontSize="18"/>
-                                    <TextBlock x:Name="VendorInventoryPriceTxt" Canvas.Left="230" TextWrapping="Wrap" Text="{Binding Path=PriceDetail}" Canvas.Top="23" HorizontalAlignment="Left" VerticalAlignment="Top" Width="106" Height="28" FontSize="18" FontFamily="Segoe UI Black"/>
-                                    <TextBlock x:Name="VendorItemQuantityTxt" Canvas.Left="10" TextWrapping="Wrap" Text="{Binding Path=Quantity}" Canvas.Top="71" HorizontalAlignment="Left" VerticalAlignment="Top" Width="156" Height="27" FontFamily="Segoe UI Black" FontSize="18"/>
-                                    <Image x:Name="VendorItemImage" Source="{Binding Path=Image}" Height="126" Canvas.Left="244" Width="130" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Top="98"/>
+                                    <TextBlock x:Name="VendorItemNameTxt" TextWrapping="Wrap" Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}" Height="58" Width="197" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="10" Canvas.Top="10" FontSize="24" FontWeight="Bold" FontFamily="Segoe UI Black"/>
+                                    <TextBlock x:Name="VendorItemDescriptionTxt" Canvas.Left="10" TextWrapping="Wrap" Text="{Binding Path=Description, UpdateSourceTrigger=PropertyChanged}" Canvas.Top="110" Height="174" Width="234" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Segoe UI Black" FontSize="18"/>
+                                    <TextBlock x:Name="VendorInventoryPriceTxt" Canvas.Left="230" TextWrapping="Wrap" Text="{Binding Path=PriceDetail, UpdateSourceTrigger=PropertyChanged}" Canvas.Top="23" HorizontalAlignment="Left" VerticalAlignment="Top" Width="106" Height="28" FontSize="18" FontFamily="Segoe UI Black"/>
+                                    <TextBlock x:Name="VendorItemQuantityTxt" Canvas.Left="10" TextWrapping="Wrap" Text="{Binding Path=Quantity,UpdateSourceTrigger=PropertyChanged}" Canvas.Top="71" HorizontalAlignment="Left" VerticalAlignment="Top" Width="156" Height="27" FontFamily="Segoe UI Black" FontSize="18"/>
+                                    <Image x:Name="VendorItemImage" Source="{Binding Path=PathImage, UpdateSourceTrigger=PropertyChanged}" Height="126" Canvas.Left="244" Width="130" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Top="98"/>
                                     <Button x:Name="BuyNextButton" Content="Next" Canvas.Left="210" Canvas.Top="303" Width="146" HorizontalAlignment="Left" VerticalAlignment="Center" Click="VendorTabButtons_Click" Height="59"/>
                                     <Button x:Name="ButtonBuy" Content="Buy" Width="146" HorizontalAlignment="Left" Canvas.Left="27" Canvas.Top="303" VerticalAlignment="Center" Click="VendorTabButtons_Click" Height="59"/>
                                 </Canvas>
@@ -81,11 +81,11 @@
                         <TabItem x:Name="SellTab" Header="Sell" FontSize="16">
                             <Grid x:Name="SellGrid" Loaded="SellGrid_Loaded">
                                 <Canvas x:Name="PlayerInventoryCanvas" Margin="10,10,10,10">
-                                    <TextBlock x:Name="PlayerItemNameTxt" TextWrapping="Wrap" Text="{Binding Path=Name}" Height="58" Width="197" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="10" Canvas.Top="10" FontSize="24" FontWeight="Bold" FontFamily="Segoe UI Black"/>
-                                    <TextBlock x:Name="PlayerItemDescriptionTxt" Canvas.Left="13" TextWrapping="Wrap" Text="{Binding Path=Description}" Canvas.Top="110" Height="174" Width="234" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Segoe UI Black" FontSize="18"/>
-                                    <TextBlock x:Name="PlayerItemPriceTxt" Canvas.Left="268" TextWrapping="Wrap" Text="{Binding Path=PriceDetail}"  Canvas.Top="23" HorizontalAlignment="Left" VerticalAlignment="Center" Width="106" Height="28" FontSize="18" FontFamily="Segoe UI Black"/>
-                                    <TextBlock x:Name="PlayerItemQuantityTxt" Canvas.Left="10" TextWrapping="Wrap" Text="{Binding Path=Quantity}" Canvas.Top="71" HorizontalAlignment="Left" VerticalAlignment="Center" Width="156" Height="27" FontFamily="Segoe UI Black" FontSize="18"/>
-                                    <Image x:Name="PlayerItemImage" Source="{Binding Path=Image}" Height="126" Canvas.Left="244" Width="130" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Top="98"/>
+                                    <TextBlock x:Name="PlayerItemNameTxt" TextWrapping="Wrap" Text="{Binding Path=Name,UpdateSourceTrigger=PropertyChanged}" Height="58" Width="197" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="10" Canvas.Top="10" FontSize="24" FontWeight="Bold" FontFamily="Segoe UI Black"/>
+                                    <TextBlock x:Name="PlayerItemDescriptionTxt" Canvas.Left="13" TextWrapping="Wrap" Text="{Binding Path=Description, UpdateSourceTrigger=PropertyChanged}" Canvas.Top="110" Height="174" Width="234" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Segoe UI Black" FontSize="18"/>
+                                    <TextBlock x:Name="PlayerItemPriceTxt" Canvas.Left="268" TextWrapping="Wrap" Text="{Binding Path=PriceDetail, UpdateSourceTrigger=PropertyChanged}"  Canvas.Top="23" HorizontalAlignment="Left" VerticalAlignment="Center" Width="106" Height="28" FontSize="18" FontFamily="Segoe UI Black"/>
+                                    <TextBlock x:Name="PlayerItemQuantityTxt" Canvas.Left="10" TextWrapping="Wrap" Text="{Binding Path=Quantity, UpdateSourceTrigger=PropertyChanged}" Canvas.Top="71" HorizontalAlignment="Left" VerticalAlignment="Center" Width="156" Height="27" FontFamily="Segoe UI Black" FontSize="18"/>
+                                    <Image x:Name="PlayerItemImage" Source="{Binding Path=PathImage,UpdateSourceTrigger=PropertyChanged}" Height="126" Canvas.Left="244" Width="130" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Top="98"/>
                                     <Button x:Name="ButtonSell" Content="Sell" Width="146" HorizontalAlignment="Left" Canvas.Left="27" Canvas.Top="303" VerticalAlignment="Center" Click="VendorTabButtons_Click" Height="59"/>
                                     <Button x:Name="SellNextButton" Content="Next" Canvas.Left="210" Canvas.Top="303" Width="146" HorizontalAlignment="Left" VerticalAlignment="Center" Click="VendorTabButtons_Click" Height="59"/>
                                 </Canvas>

@@ -53,7 +53,7 @@ namespace EcoSystem
                     temp.Species = entity.GetAttribute("species");
                     if (temp.Type != "Player" || temp.Type != "Vendor")
                     {
-                        temp.ImagePath = new BitmapImage(new Uri($"Images/{entity.GetAttribute("imagePath")} .png", UriKind.Relative));
+                        temp.ImagePath = new BitmapImage(new Uri("images/" + entity.GetAttribute("imagePath") + ".png", UriKind.Relative));
                     }
 
                     if (int.TryParse(entity.GetAttribute("foodamount"), out int a))
@@ -94,7 +94,7 @@ namespace EcoSystem
                         Description = Item.GetAttribute("description"),
                         Price = float.Parse(Item.GetAttribute("price")),
                         Quantity = int.Parse(Item.GetAttribute("quantity")),
-                        ImagePath = new BitmapImage(new Uri($"images/{Item.GetAttribute("imagePath")} .png", UriKind.Relative)),
+                        PathImage = new BitmapImage(new Uri("images/" + Item.GetAttribute("imagePath") + ".png", UriKind.Relative)),
 
                 });;
                 }
