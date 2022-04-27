@@ -13,27 +13,35 @@ namespace EcoSystem
         Ratio ratio = new Ratio();
         public void ProducerRatio()
         {
-                                 // Corn                     Corn Ear Worm
+                                 // Corn       3             Corn Ear Worm
             ratio.CheckRatio(MainWindow.game.Organisms[0], MainWindow.game.Organisms[2]);
-                                //Cotton                    Cotton Bool Worm
+                                //Cotton           3         Cotton Bool Worm
             ratio.CheckRatio(MainWindow.game.Organisms[1], MainWindow.game.Organisms[3]);
         }
        
-       public void CheckProducerStatus()
+
+        public void HarvestCrops()
         {
-            if (Amount <= 100 || Amount >= 600)
-            {   //Less Than 100 or Greater than 600
-                EntityStatus = Status.Unbalanced;
-            }
-            else if (Amount < 400 || Amount > 500)
-            {   //Less than 400 or Greater than 500
-                EntityStatus = Status.Danger;
-            }
-            else if (Amount <= 400 && Amount >= 500)
-            {   // Inbetween 400 and 500
-                EntityStatus = Status.Balanced;
-            }
-            System.Diagnostics.Debug.WriteLine($"STATUS UPDATE {EntityStatus}");
-        } 
+            foreach (var item in MainWindow.game.player.Inventory.Where(x => x.Name == "Corn"))
+                item.Quantity += MainWindow.game.Organisms[0].Amount;
+            foreach (var item in MainWindow.game.player.Inventory.Where(x => x.Name == "Cotton"))
+                item.Quantity += MainWindow.game.Organisms[1].Amount;
+
+
+            MainWindow.game.Organisms[0].Amount -= MainWindow.game.Organisms[0].Amount;
+            MainWindow.game.Organisms[1].Amount -= MainWindow.game.Organisms[1].Amount;
+
+        }
+
+
+        public void PlantSeeds()
+        {
+            foreach (var item in MainWindow.game.player.Inventory.Where(x => x.Name == "Seeds"))
+                MainWindow.game.Organisms[0].Amount += item.Quantity;
+     
+
+
+            
+        }
     }
 }

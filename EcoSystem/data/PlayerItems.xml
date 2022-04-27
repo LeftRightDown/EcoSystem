@@ -1,6 +1,6 @@
 <environment>
-	<item name ="Cotton"  description="A soft and fluffy fiber"  price="5" quantity="150" image="">
+	<item name ="Cotton"  description="A soft and fluffy fiber"  price="5" quantity="150" imagePath="cotton">
 	</item>
-	<item name ="Corn"  description="A elongated leafy stalk used to produce various foods "  price="50" quantity="100" image="">
+	<item name ="Corn"  description="A elongated leafy stalk used to produce various foods "  price="5" quantity="100" imagePath="corn">
 	</item>
 </environment>

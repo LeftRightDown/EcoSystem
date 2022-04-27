@@ -17,7 +17,7 @@ namespace EcoSystem
         }
         private int GetRandomNumber()
         {
-            return new Random().Next(1,10);
+            return new Random().Next(5);
         }
 
         public int IncrementCounter()

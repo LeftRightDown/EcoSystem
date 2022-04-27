@@ -9,8 +9,10 @@ namespace EcoSystem
 {
     public class Game
     {
+        //Declaring Types
         public Player player = new Player();
         public Vendor vendor = new Vendor();
+
         public Producer producer = new Producer();
         public Consumer consumer = new Consumer();
         public Decomposer decomposer = new Decomposer();
@@ -24,6 +26,9 @@ namespace EcoSystem
             Organisms = LoadData.LoadEntities("data/Entities.xml");
             player.Inventory = LoadData.LoadItems("data/PlayerItems.xml");
             vendor.Inventory = LoadData.LoadItems("data/VendorItems.xml");
+
+            player.Currency = 50;
+            vendor.Currency = 1000;
         }
 
 

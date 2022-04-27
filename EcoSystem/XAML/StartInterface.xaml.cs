@@ -51,7 +51,7 @@ namespace EcoSystem
                     (@"
                      Designed and Programed By: Zachary Tan
                      Debugging & Structural Assistance from: Mack, Pearson - Muggli && Janell Baxter
-                     Additional Code reused from in class demos, and Microsoft Page.
+                     Additional Code reused from in class demos, Stack over flow, and Microsoft Pages.
                     ",
                     "CREDITS"
                     );

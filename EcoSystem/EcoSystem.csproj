@@ -134,5 +134,11 @@
     <Resource Include="Images\hawk.png" />
     <Resource Include="Images\worm.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\pesticides.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\scarecrow.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

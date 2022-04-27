@@ -65,7 +65,7 @@ namespace EcoSystem
             daynumberTxt.Text = $"Day: {DayNumber}";
             Timer();
             ButtoneNextDay.Content = "Next Day";
-            
+            currencyText.Text = $"{MainWindow.game.player.currencyDetail}";
 
         }
         #region "Timer"
@@ -126,8 +126,6 @@ namespace EcoSystem
         //Environment TAB
         #region "Environment"
 
-
-
         #region "Buttons"
         //Buttons Located inside Environment tab for player actions
         private void EnvironmentTabButtons_Click(object sender, RoutedEventArgs e)
@@ -139,9 +137,24 @@ namespace EcoSystem
             {
                 case "ButtonHarvest":
                     
+                    MainWindow.game.producer.HarvestCrops();
+                    UpdateEntityTxt();
+                    UpdateEntityIndicator();
+                    
+                    
+
                     break;
                 case "ButtonPlant":
+                    Item Results = Utility.SearchInventory("Seeds", MainWindow.game.player.Inventory);
 
+                    if (Results.Name == "Seeds")
+                    {
+
+                    }
+                    else
+                        MessageBox.Show("No Item named 'Seeds' Found");
+
+                    
                     break;
                 case "ButtonPesticides":
 
@@ -160,9 +173,7 @@ namespace EcoSystem
             //Setting Up information being displayed on Environment Tab
             UpdateEntityTxt();
             UpdateEntityIndicator();
-            //producer.CheckProducerStatus();
-            //consumer.CheckConsumerStatus();
-            //decomposer.CheckDecomposerStatus();
+            UpdateEnvironmentLog();
 
 
         }
@@ -188,7 +199,6 @@ namespace EcoSystem
 
           
         }
-
         public void UpdateEntityIndicator()
         {  
             //Producers 
@@ -211,19 +221,17 @@ namespace EcoSystem
         {
             foreach (Entity e in MainWindow.game.Organisms)
             {
-                System.Diagnostics.Debug.WriteLine($" {e.EntityStatus}");
                 if (e.Species.ToLower() != "human")
                 {
                     UpdateEntityLogInfo(e);
                 }
             }
         }
-
         private void UpdateEntityLogInfo(Entity entity)
         {
             entity.PopulationChange += entity.Entity_PopulationChanged;
+            System.Diagnostics.Debug.WriteLine($"System Class STATUS UPDATE {entity.Name} {entity.EntityStatus}");
 
-            System.Diagnostics.Debug.WriteLine($"{entity.Name} {entity.EntityStatus}");
             if (entity.EntityStatus == Status.Unbalanced)
             {
                 LogTxt.Text += $" Day: {DayNumber} ALERT {entity.Name} populuation {entity.EntityStatus} {Environment.NewLine}";
@@ -244,33 +252,48 @@ namespace EcoSystem
         void BuyGrid_Loaded(object sender, RoutedEventArgs e)
        {
          DataContext = MainWindow.game.vendor.Inventory[index];
-         System.Diagnostics.Debug.WriteLine($"LOADING BUYTAB");
+         
        }
 
         private void SellGrid_Loaded(object sender, RoutedEventArgs e)
         {
-            DataContext = MainWindow.game.player.Inventory[index];
-            System.Diagnostics.Debug.WriteLine($"LOADING SELLTAB");
+           PlayerInventoryCanvas.DataContext = MainWindow.game.player.Inventory[index];
+            
         }
 
         //Buttons Within Vendor Tab
         private void VendorTabButtons_Click(object sender, RoutedEventArgs e)
         {
-            BuyAndSell PlayerBuy = MainWindow.game.vendor.Sell;
-            BuyAndSell VendorSell = MainWindow.game.player.Buy;
+            //Player Buys Item for Vendor
+            BuyAndSell PlayerBuy = MainWindow.game.player.BuyandSell;
+            //Player Sells
+            BuyAndSell VendorBuy = MainWindow.game.vendor.BuyandSell;
             Button button = (Button)sender;
 
             switch (button.Name)
             {
                 case "ButtonBuy":
                     //Player Buys Item from Vendor
-                    //Input = ;
-                    //System.Diagnostics.Debug.WriteLine($"{DataContext.ToString()} databinded items");
-                    //VendorSell(Input, MainWindow.player, MainWindow.vendor, MainWindow.vendor.Inventory, MainWindow.player.Inventory);
+                    index++;
+                    if (index >= MainWindow.game.vendor.Inventory.Count)
+                    {
+                        index = 0;
+                    }
+                    VendorInventoryCanvas.DataContext = MainWindow.game.vendor.Inventory[index]; 
+                    System.Diagnostics.Debug.WriteLine($"System Class {DataContext} BOUGHT items");
+                    PlayerBuy(Input.Name, MainWindow.game.vendor, MainWindow.game.player, MainWindow.game.vendor.Inventory, MainWindow.game.player.Inventory);
+                    MessageBox.Show($"{Input.Name}");
 
                     break;
                 case "ButtonSell":
-
+                    index++;
+                    if (index >= MainWindow.game.player.Inventory.Count)
+                    {
+                        index = 0;
+                    }
+                    PlayerInventoryCanvas.DataContext = MainWindow.game.player.Inventory[index];
+                    System.Diagnostics.Debug.WriteLine($"System Class {DataContext} SOLD items");
+                    VendorBuy(DataContext.ToString(), MainWindow.game.player, MainWindow.game.vendor, MainWindow.game.player.Inventory, MainWindow.game.vendor.Inventory);
                     break;
                 case "BuyNextButton":
                     index++;
@@ -279,8 +302,8 @@ namespace EcoSystem
                     {
                         index = 0;
                     }
-                    DataContext = MainWindow.game.vendor.Inventory[index];
-                    System.Diagnostics.Debug.WriteLine($"{DataContext} THIS IS WHERE VENDOR");
+                    VendorInventoryCanvas.DataContext = MainWindow.game.vendor.Inventory[index];
+                    System.Diagnostics.Debug.WriteLine($"System Class {DataContext} THIS IS WHERE VENDOR");
                     break;
                 case "SellNextButton":
                     index++;
@@ -289,8 +312,8 @@ namespace EcoSystem
                     {
                         index = 0;
                     }
-                    DataContext = MainWindow.game.player.Inventory[index];
-                    System.Diagnostics.Debug.WriteLine($"{DataContext} THIS IS WHERE PLAYER");
+                    PlayerInventoryCanvas.DataContext = MainWindow.game.player.Inventory[index];
+                    System.Diagnostics.Debug.WriteLine($"System Class {DataContext} THIS IS WHERE PLAYER");
 
                     break;
             

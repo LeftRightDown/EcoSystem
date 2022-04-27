@@ -93,9 +93,10 @@ namespace EcoSystem
                         Name = Item.GetAttribute("name"),
                         Description = Item.GetAttribute("description"),
                         Price = float.Parse(Item.GetAttribute("price")),
-                        Quantity = float.Parse(Item.GetAttribute("quantity")),
+                        Quantity = int.Parse(Item.GetAttribute("quantity")),
+                        ImagePath = new BitmapImage(new Uri($"images/{Item.GetAttribute("imagePath")} .png", UriKind.Relative)),
 
-                    });;
+                });;
                 }
             }
             return Items;

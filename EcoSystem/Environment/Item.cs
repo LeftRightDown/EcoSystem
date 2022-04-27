@@ -12,11 +12,12 @@ namespace EcoSystem
         public string Name { get; set; }
         public string Description { get; set; }
         public float Price { get; set; }
-        public float Quantity { get; set; }
+        public int Quantity { get; set; }
 
-        public BitmapImage Image { get; set; }
+        public BitmapImage ImagePath { get; set; }
 
+        public string PriceDetail { get { return Price.ToString("c"); } set => Price.ToString(); }
        
-
+        
     }
 }

@@ -14,6 +14,7 @@ namespace EcoSystem
         //    ((MainWindow)System.Windows.Application.Current.MainWindow).LogTxt.Text += output;
 
         //}
+
         //Checks Persons Inventory
         public static Item SearchInventory(string ItemName, List<Item> list)
         {
@@ -43,7 +44,7 @@ namespace EcoSystem
             }
             else if (entity.EntityStatus == Status.Danger)
             {
-                return new SolidColorBrush(Colors.Yellow);
+                return new SolidColorBrush(Colors.LightGoldenrodYellow);
             }
             else if (entity.EntityStatus == Status.Balanced)
             {
