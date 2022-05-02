@@ -117,11 +117,11 @@ namespace EcoSystem
                             {   //Greater than 300
                                 EntityStatus = Status.Unbalanced;
                             }
-                            else if (Amount < 40 || Amount > 100)
+                            else if (Amount < 40 || Amount > 150)
                             {   //Less than 40 or Greater than 100
                                 EntityStatus = Status.Danger;
                             }
-                            else if (Amount >= 40 && Amount <= 100)
+                            else if (Amount >= 40 && Amount <= 150)
                             {   //Inbetween 40 and 100
                                 EntityStatus = Status.Balanced;
                             }

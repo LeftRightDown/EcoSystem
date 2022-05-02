@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Media;
 
 namespace EcoSystem
@@ -19,7 +20,7 @@ namespace EcoSystem
             ratio.CheckRatio(MainWindow.game.Organisms[1], MainWindow.game.Organisms[3]);
         }
        
-
+        //Method for Harvesting Crops
         public void HarvestCrops()
         {
             foreach (var item in MainWindow.game.player.Inventory.Where(x => x.Name == "Corn"))
@@ -33,14 +34,31 @@ namespace EcoSystem
 
         }
 
+        //Method for planting seeds
+        public void PlantSeeds(string itemname)
+        {  
+            Item Results = Utility.SearchInventory( itemname, MainWindow.game.player.Inventory);
+            if (Results == null)
+            {
+                MessageBox.Show("No Item: 'Corn Seed' or 'Cotton Seed' Found");
+            }
+            else if (Results.Name == "Corn Seeds")
+            {
+                foreach (var item in MainWindow.game.player.Inventory.Where(x => x.Name == "Corn Seeds"))
+                    MainWindow.game.Organisms[0].Amount += item.Quantity;
 
-        public void PlantSeeds()
-        {
-            foreach (var item in MainWindow.game.player.Inventory.Where(x => x.Name == "Seeds"))
-                MainWindow.game.Organisms[0].Amount += item.Quantity;
-     
+                var s = MainWindow.game.player.Inventory.Find(w => w.Name == "Corn Seeds");
+                MainWindow.game.player.Inventory.Remove(s);
 
+            }
+            else if (Results.Name == "Cotton Seeds") 
+            { 
+                foreach (var item in MainWindow.game.player.Inventory.Where(x => x.Name == "Cotton Seeds"))
+                MainWindow.game.Organisms[1].Amount += item.Quantity;
 
+                var e = MainWindow.game.player.Inventory.Find(w => w.Name == "Corn Seeds");
+                MainWindow.game.player.Inventory.Remove(e);
+            }
             
         }
     }

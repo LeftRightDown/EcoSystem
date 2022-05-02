@@ -1,5 +1,5 @@
 <environment>
-	<item name ="Pesticide"  description="A spray of chemicals that protects crops from pest; Last for only 2 days"  price="5" quantity="2" imagePath="pesticides">
+	<item name ="Pesticide"  description="A spray of chemicals that protects crops from pest; Last for only 1 days"  price="5" quantity="2" imagePath="pesticides">
 	</item>
 	<item name ="Hawk Deterrent"  description="An Owl decoy that keeps the big bad hawks away; Last for only 1 day"  price="10" quantity="1" imagePath="scarecrow">
 	</item>

@@ -3,4 +3,10 @@
 	</item>
 	<item name ="Corn"  description="A elongated leafy stalk used to produce various foods "  price="5" quantity="100" imagePath="corn">
 	</item>
+	<item name ="Corn Seeds"  description="Seeds for Sacred Food of the Midwest "  price="10" quantity="10" imagePath="corn">
+	</item>
+	<item name="Cotton Seeds" description="Seeds for the softest thing on the planet" price ="10" quantity= "10" imagePath="cotton">
+	</item>
+	<item name ="Pesticide"  description="A spray of chemicals that protects crops from pest; Last for only 2 days"  price="5" quantity="2" imagePath="pesticides">
+	</item>
 </environment>

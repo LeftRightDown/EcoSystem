@@ -23,21 +23,6 @@ namespace EcoSystem
     
     public partial class SystemInterface : Page
     {
-        ////Producers
-        //public Entity corn = MainWindow.game.Organisms[0];
-        //public Entity cotton = MainWindow.game.Organisms[1];
-
-        ////Consumers
-        //public Entity bats = MainWindow.game.Organisms[4];
-        //public Entity hawk = MainWindow.game.Organisms[5];
-        //public Entity cornEarworm = MainWindow.game.Organisms[2];
-        //public Entity cottonBollworm = MainWindow.game.Organisms[3];
-
-        ////Decomposers
-        //public Entity dermestidBeetle = MainWindow.game.Organisms[6];
-        //public Entity guanoBeetle = MainWindow.game.Organisms[7];
-
-  
 
         //Declaring Timer Properties
         CountUI count;
@@ -136,31 +121,32 @@ namespace EcoSystem
             switch (button.Name)
             {
                 case "ButtonHarvest":
-                    
+                        
                     MainWindow.game.producer.HarvestCrops();
+
                     UpdateEntityTxt();
                     UpdateEntityIndicator();
                     
-                    
-
                     break;
                 case "ButtonPlant":
-                    Item Results = Utility.SearchInventory("Seeds", MainWindow.game.player.Inventory);
+                    MainWindow.game.producer.PlantSeeds("Corn Seeds");
+                    MainWindow.game.producer.PlantSeeds("Cotton Seeds");
 
-                    if (Results.Name == "Seeds")
-                    {
-
-                    }
-                    else
-                        MessageBox.Show("No Item named 'Seeds' Found");
-
+                    UpdateEntityTxt();
+                    UpdateEntityIndicator();
                     
                     break;
                 case "ButtonPesticides":
+                    MainWindow.game.consumer.SprayPesticides();
 
+                    UpdateEntityTxt();
+                    UpdateEntityIndicator();
                     break;
                 case "ButtonHawkDeterrent":
+                    MainWindow.game.consumer.PlaceHawkDeterrent();
 
+                    UpdateEntityTxt();
+                    UpdateEntityIndicator();
                     break;
             }
         }
@@ -265,9 +251,9 @@ namespace EcoSystem
         //Buttons Within Vendor Tab
         private void VendorTabButtons_Click(object sender, RoutedEventArgs e)
         {
-            //Player Buys Item for Vendor
+            //Player Buys Item from Vendor
             BuyAndSell PlayerBuy = MainWindow.game.player.BuyandSell;
-            //Player Sells
+            //Vendor Buys Item from Player
             BuyAndSell VendorBuy = MainWindow.game.vendor.BuyandSell;
             Button button = (Button)sender;
 
@@ -276,27 +262,37 @@ namespace EcoSystem
                 case "ButtonBuy":
                     //Player Buys Item from Vendor
                     index++;
+
                     if (index >= MainWindow.game.vendor.Inventory.Count)
                     {
                         index = 0;
                     }
-                    VendorInventoryCanvas.DataContext = MainWindow.game.vendor.Inventory[index]; 
+                    VendorInventoryCanvas.DataContext = MainWindow.game.vendor.Inventory[index];
+
                     System.Diagnostics.Debug.WriteLine($"System Class {DataContext} BOUGHT items");
-                    PlayerBuy(Input.Name, MainWindow.game.vendor, MainWindow.game.player, MainWindow.game.vendor.Inventory, MainWindow.game.player.Inventory);
-                    MessageBox.Show($"{Input.Name}");
+                    PlayerBuy(MainWindow.game.vendor.Inventory[index].Name, MainWindow.game.vendor, MainWindow.game.player, MainWindow.game.vendor.Inventory, MainWindow.game.player.Inventory);
+                    MessageBox.Show($"You've Bought {MainWindow.game.vendor.Inventory[index].Name}!");
+                    currencyText.Text = $"{MainWindow.game.player.currencyDetail}";
+
 
                     break;
                 case "ButtonSell":
+                    //Vendor Buys Item from Player
                     index++;
+
                     if (index >= MainWindow.game.player.Inventory.Count)
                     {
                         index = 0;
                     }
                     PlayerInventoryCanvas.DataContext = MainWindow.game.player.Inventory[index];
+
                     System.Diagnostics.Debug.WriteLine($"System Class {DataContext} SOLD items");
-                    VendorBuy(DataContext.ToString(), MainWindow.game.player, MainWindow.game.vendor, MainWindow.game.player.Inventory, MainWindow.game.vendor.Inventory);
+                    VendorBuy(MainWindow.game.player.Inventory[index].Name, MainWindow.game.player, MainWindow.game.vendor, MainWindow.game.player.Inventory, MainWindow.game.vendor.Inventory);
+                    MessageBox.Show($"You've Sold {MainWindow.game.player.Inventory[index].Name}!");
+                    currencyText.Text = $"{MainWindow.game.player.currencyDetail}";
                     break;
                 case "BuyNextButton":
+                    //Switches Item on display for Vendor Inventory
                     index++;
 
                     if (index >= MainWindow.game.vendor.Inventory.Count)
@@ -304,9 +300,11 @@ namespace EcoSystem
                         index = 0;
                     }
                     VendorInventoryCanvas.DataContext = MainWindow.game.vendor.Inventory[index];
+
                     System.Diagnostics.Debug.WriteLine($"System Class {DataContext} THIS IS WHERE VENDOR");
                     break;
                 case "SellNextButton":
+                    //Switches Item on dispaly for Player Inventory
                     index++;
 
                     if (index >= MainWindow.game.player.Inventory.Count)
@@ -314,6 +312,7 @@ namespace EcoSystem
                         index = 0;
                     }
                     PlayerInventoryCanvas.DataContext = MainWindow.game.player.Inventory[index];
+
                     System.Diagnostics.Debug.WriteLine($"System Class {DataContext} THIS IS WHERE PLAYER");
 
                     break;
