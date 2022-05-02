@@ -19,8 +19,8 @@ namespace EcoSystem
                                 //Cotton           3         Cotton Bool Worm
             ratio.CheckRatio(MainWindow.game.Organisms[1], MainWindow.game.Organisms[3]);
         }
-       
-        //Method for Harvesting Crops
+
+        //Method for Harvesting Crops, Foreach from (https://stackoverflow.com/questions/12986776/change-some-value-inside-the-listt)
         public void HarvestCrops()
         {
             foreach (var item in MainWindow.game.player.Inventory.Where(x => x.Name == "Corn"))

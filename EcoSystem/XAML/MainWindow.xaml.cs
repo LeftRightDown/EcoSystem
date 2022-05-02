@@ -1,8 +1,17 @@
-﻿
-
-
-//https://stackoverflow.com/questions/12986776/change-some-value-inside-the-listt
-
+﻿/*
+ * EcoSystem: Bracken Cave
+ * Zachary Tan, 5/2/2022
+ * Credits
+ * - Event Handlers From PROG 201 Canvas Demos
+ * - Ratio Method from PROG 201 Canvas Page
+ * - Certain Methods of Count and CountUI from Canvas Demo
+ * - LoadData entities code from PROG 201 Canvas Demo
+ * - DispatchTimer example by kmatyaszek (https://stackoverflow.com/users/1410998/kmatyaszek)
+ * - Foreach loop assistance from (https://stackoverflow.com/questions/12986776/change-some-value-inside-the-listt)
+ * Counter code from MSDN:(https://docs.microsoft.com/en-us/dotnet/standard/events/how-to-raise-and-consume-events)
+ * 
+ * 
+ */
 
 using System;
 using System.Collections.Generic;

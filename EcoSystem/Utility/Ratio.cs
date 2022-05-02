@@ -17,7 +17,7 @@ namespace EcoSystem
             if (entityTwo <= 0)
             {
                 System.Diagnostics.Debug.WriteLine($"Ratio Class HERE {entityOne} {entityOne} ");
-                return (0.00);
+                return 0.00;
                 
             }
             else
@@ -28,7 +28,36 @@ namespace EcoSystem
         //Checks Ratio Between entity and food soruce from Canvas Page
         public void CheckRatio(Entity entityOne, Entity entityTwo)
         {
-            if (GetRatio(entityOne.Amount, entityTwo.Amount) >= entityOne.FoodAmount)
+            if (GetRatio(entityOne.Amount, entityTwo.Amount) == 0.00)
+              {    //not enough food
+                if (entityOne.Amount < 0 && entityTwo.Amount < 0)
+                {
+                    //entity one minus random number
+                    entityOne.Amount -= count.DecrementCounter();
+                    System.Diagnostics.Debug.WriteLine($"Ratio Class {entityOne.Name} {entityOne.Amount}No Food bEFORE {entityOne.FoodAmount}");
+
+                    System.Diagnostics.Debug.WriteLine($"Ratio Class {entityOne.Name} {entityOne.Amount}No Food After aFTER {entityOne.FoodAmount}");
+                }
+                else if (entityOne.Amount < 0 || entityTwo.Amount < 0)
+                {
+                    if (entityOne.Amount < 0)
+                    {
+                        entityOne.Amount += 1;
+                        System.Diagnostics.Debug.WriteLine($"Ratio Class {entityOne.Name} {entityOne.Amount} += 1");
+                    }
+                    else if (entityTwo.Amount < 0)
+                    {
+                        entityTwo.Amount += 1;
+                        System.Diagnostics.Debug.WriteLine($"Ratio Class {entityTwo.Name} {entityTwo.Amount} += 1");
+                    }
+                }
+                else if (entityOne.Amount == 0 || entityTwo.Amount == 0)
+                {
+                    entityOne.Amount = 0;
+                    System.Diagnostics.Debug.WriteLine($"Ratio Class {entityOne.Name} {entityOne.Amount} = 0 ");
+                }
+            }
+            else if (GetRatio(entityOne.Amount, entityTwo.Amount) >= entityOne.FoodAmount)
             {
                 
                 System.Diagnostics.Debug.WriteLine($"Ratio Class {entityOne.Name} {entityOne.Amount}Food bEFORE {entityOne.FoodAmount}");
@@ -65,38 +94,7 @@ namespace EcoSystem
                     System.Diagnostics.Debug.WriteLine($"Ratio Class {entityOne.Name} {entityOne.Amount} = 0 ");
                 }
             }
-            else
-            {    //not enough food
-                if (entityOne.Amount < 0 && entityTwo.Amount < 0)
-                {
-                    //entity one minus random number
-                    entityOne.Amount -= count.DecrementCounter();
-                    System.Diagnostics.Debug.WriteLine($"Ratio Class {entityOne.Name} {entityOne.Amount}No Food bEFORE {entityOne.FoodAmount}"); 
-
-                    System.Diagnostics.Debug.WriteLine($"Ratio Class {entityOne.Name} {entityOne.Amount}No Food After aFTER {entityOne.FoodAmount}");
-                }
-                else if (entityOne.Amount < 0 || entityTwo.Amount < 0)
-                {
-                    if (entityOne.Amount < 0)
-                    {
-                        entityOne.Amount += 1;
-                        System.Diagnostics.Debug.WriteLine($"Ratio Class {entityOne.Name} {entityOne.Amount} += 1");
-                    }
-                    else if (entityTwo.Amount < 0)
-                    {
-                        entityTwo.Amount += 1;
-                        System.Diagnostics.Debug.WriteLine($"Ratio Class {entityTwo.Name} {entityTwo.Amount} += 1");
-                    }
-                }
-                else if (entityOne.Amount == 0 || entityTwo.Amount == 0)
-                {
-                    entityOne.Amount = 0;
-                    System.Diagnostics.Debug.WriteLine($"Ratio Class {entityOne.Name} {entityOne.Amount} = 0 ");
-                }
-                
-               
-                
-            }
+           
         }
     }
 }

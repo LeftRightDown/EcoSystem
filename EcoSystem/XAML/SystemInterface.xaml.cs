@@ -28,7 +28,7 @@ namespace EcoSystem
         CountUI count;
         DispatcherTimer timer;
         TimeSpan timeSpan;
-        int DayNumber = 1;
+         int DayNumber = 1;
 
         //Declaring List Property
         int index = 0;
@@ -51,7 +51,16 @@ namespace EcoSystem
             Timer();
             ButtoneNextDay.Content = "Next Day";
             currencyText.Text = $"{MainWindow.game.player.currencyDetail}";
+            MessageBox.Show("KEEP THE ECOSYSTEM BALANCED!");
 
+        }
+        //Method for end game conditions.
+        public void EndGame()
+        {
+            if (DayNumber == 15)
+            {
+               
+            }
         }
         #region "Timer"
         //Creates Timer
@@ -236,60 +245,78 @@ namespace EcoSystem
         //Vendor TAB
         #region "Vendor"
 
-      
         void BuyGrid_Loaded(object sender, RoutedEventArgs e)
         {
-         VendorInventoryCanvas.DataContext = MainWindow.game.vendor.Inventory[index];   
+            if (index >= MainWindow.game.vendor.Inventory.Count)
+            {
+                index = 0;
+            }
+            VendorInventoryCanvas.DataContext = MainWindow.game.vendor.Inventory[index];
         }
 
         private void SellGrid_Loaded(object sender, RoutedEventArgs e)
         {
-           PlayerInventoryCanvas.DataContext = MainWindow.game.player.Inventory[index];
-            
+            try
+            {
+                if (index >= MainWindow.game.player.Inventory.Count)
+                {
+                    index = 0;
+                }
+                PlayerInventoryCanvas.DataContext = MainWindow.game.player.Inventory[index];
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                PlayerInventoryCanvas.DataContext = string.Empty;
+            }
+           
         }
 
         //Buttons Within Vendor Tab
         private void VendorTabButtons_Click(object sender, RoutedEventArgs e)
         {
             //Player Buys Item from Vendor
-            BuyAndSell PlayerBuy = MainWindow.game.player.BuyandSell;
+            BuyAndSell PlayerBuy = MainWindow.game.player.Buy;
             //Vendor Buys Item from Player
-            BuyAndSell VendorBuy = MainWindow.game.vendor.BuyandSell;
+            BuyAndSell VendorBuy = MainWindow.game.player.Sell;
             Button button = (Button)sender;
 
             switch (button.Name)
             {
                 case "ButtonBuy":
                     //Player Buys Item from Vendor
-                    index++;
-
                     if (index >= MainWindow.game.vendor.Inventory.Count)
                     {
                         index = 0;
                     }
-                    VendorInventoryCanvas.DataContext = MainWindow.game.vendor.Inventory[index];
-
-                    System.Diagnostics.Debug.WriteLine($"System Class {DataContext} BOUGHT items");
+                    System.Diagnostics.Debug.WriteLine($"System Class {MainWindow.game.vendor.Inventory[index].Name} BOUGHT items");
                     PlayerBuy(MainWindow.game.vendor.Inventory[index].Name, MainWindow.game.vendor, MainWindow.game.player, MainWindow.game.vendor.Inventory, MainWindow.game.player.Inventory);
                     MessageBox.Show($"You've Bought {MainWindow.game.vendor.Inventory[index].Name}!");
                     currencyText.Text = $"{MainWindow.game.player.currencyDetail}";
-
+                    
 
                     break;
                 case "ButtonSell":
                     //Vendor Buys Item from Player
-                    index++;
-
-                    if (index >= MainWindow.game.player.Inventory.Count)
+                    try
                     {
-                        index = 0;
+                        if (index >= MainWindow.game.player.Inventory.Count)
+                        {
+                            index = 0;
+                            
+                        }
+                        PlayerInventoryCanvas.DataContext = MainWindow.game.player.Inventory[index];
+                        System.Diagnostics.Debug.WriteLine($"System Class {MainWindow.game.player.Inventory[index].Name} SOLD items");
+                        VendorBuy(MainWindow.game.player.Inventory[index].Name, MainWindow.game.player, MainWindow.game.vendor, MainWindow.game.player.Inventory, MainWindow.game.vendor.Inventory);
+                        MessageBox.Show($"You've Sold {MainWindow.game.player.Inventory[index].Name}!");
+                        currencyText.Text = $"{MainWindow.game.player.currencyDetail}";
                     }
-                    PlayerInventoryCanvas.DataContext = MainWindow.game.player.Inventory[index];
+                    catch (ArgumentOutOfRangeException)
+                    {
+                        PlayerInventoryCanvas.DataContext = string.Empty;
+                    }
+                   
+                    
 
-                    System.Diagnostics.Debug.WriteLine($"System Class {DataContext} SOLD items");
-                    VendorBuy(MainWindow.game.player.Inventory[index].Name, MainWindow.game.player, MainWindow.game.vendor, MainWindow.game.player.Inventory, MainWindow.game.vendor.Inventory);
-                    MessageBox.Show($"You've Sold {MainWindow.game.player.Inventory[index].Name}!");
-                    currencyText.Text = $"{MainWindow.game.player.currencyDetail}";
                     break;
                 case "BuyNextButton":
                     //Switches Item on display for Vendor Inventory
@@ -305,15 +332,26 @@ namespace EcoSystem
                     break;
                 case "SellNextButton":
                     //Switches Item on dispaly for Player Inventory
-                    index++;
-
-                    if (index >= MainWindow.game.player.Inventory.Count)
+                    try
                     {
-                        index = 0;
-                    }
-                    PlayerInventoryCanvas.DataContext = MainWindow.game.player.Inventory[index];
+                        index++;
 
-                    System.Diagnostics.Debug.WriteLine($"System Class {DataContext} THIS IS WHERE PLAYER");
+                        if (index >= MainWindow.game.player.Inventory.Count)
+                        {
+                            index = 0;
+                        }
+                        PlayerInventoryCanvas.DataContext = MainWindow.game.player.Inventory[index];
+
+                        System.Diagnostics.Debug.WriteLine($"System Class {DataContext} THIS IS WHERE PLAYER");
+                    }
+                    catch (ArgumentOutOfRangeException)
+                    {
+
+                        MessageBox.Show("Inventory is Currently Empty");
+                    }
+                    
+
+                    
 
                     break;
             

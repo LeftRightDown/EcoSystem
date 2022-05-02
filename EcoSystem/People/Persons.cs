@@ -45,7 +45,7 @@ namespace EcoSystem
 
 
         //Universal Buy and Sell method for Each person child class
-        public void BuyandSell(string itemName, Persons Seller, Persons Buyer, List<Item> SellerList, List<Item> BuyerList)
+        public void Buy(string itemName, Persons Seller, Persons Buyer, List<Item> SellerList, List<Item> BuyerList)
         {
             CurrencyMath Add = CurrencyAdd;
             CurrencyMath Subtract = CurrencySubtract;
@@ -55,11 +55,9 @@ namespace EcoSystem
             {
                 if (Buyer.Currency >= Results.Price)
                 {
-
+                   
                     BuyerList.Add(Results);
-                    SellerList.Remove(Results);
-
-
+                    
                     System.Diagnostics.Debug.WriteLine("Persons Class BEFORE SELLER" + Seller.Currency);
 
                     Seller.Currency = Add(Seller.Currency, Results.Price);
@@ -76,35 +74,33 @@ namespace EcoSystem
             
         }
 
-        //public void Sell(string itemName, Persons Seller, Persons Buyer, List<Item> SellerList, List<Item> BuyerList)
-        //{
+        public void Sell(string itemName, Persons Seller, Persons Buyer, List<Item> SellerList, List<Item> BuyerList)
+        {
+            Item Results = Utility.SearchInventory(itemName, SellerList);
+            if (Results == null)
+            {
+                MessageBox.Show("No Valid Item");
+            }
+            else if (Results.Name == itemName)
+            {
+                if (Buyer.Currency >= Results.Price)
+                {
+                    BuyerList.Add(Results);
+                    SellerList.Remove(Results);
+                    System.Diagnostics.Debug.WriteLine("Persons BEFORE SELLER" + Seller.Currency);
 
-        //    Item Results = Utility.SearchInventory(itemName, SellerList);
-        //    if (Results == null)
-        //    {
-        //        MessageBox.Show("No Valid Item");
-        //    }
-        //    else if (Results.Name == itemName)
-        //    {
-        //        if (Buyer.Currency >= Results.Price)
-        //        {
-        //            BuyerList.Add(Results);
-        //            SellerList.Remove(Results);
-        //            System.Diagnostics.Debug.WriteLine("BEFORE SELLER" + Seller.Currency);
+                    Seller.Currency = CurrencyAdd(Seller.Currency, Results.Price);
 
-        //            Seller.Currency = CurrencyAdd(Seller.Currency, Results.Price);
+                    System.Diagnostics.Debug.WriteLine("Persons AFTER SELLER" + Seller.Currency);
+                    Buyer.Currency = CurrencySubtract(Buyer.Currency, Results.Price);
+                }
+                else if (Buyer.Currency < Results.Price)
+                {
+                    MessageBox.Show("Invalid Amount");
+                }
 
-        //            System.Diagnostics.Debug.WriteLine("AFTER SELLER" + Seller.Currency);
-        //            Buyer.Currency = CurrencySubtract(Buyer.Currency, Results.Price);
-        //        }
-        //        else if (Buyer.Currency < Results.Price)
-        //        {
-        //            MessageBox.Show("Invalid Amount");
-        //        }
+            }
 
-        //    }
-
-        //}
-
+        }
     }
 }

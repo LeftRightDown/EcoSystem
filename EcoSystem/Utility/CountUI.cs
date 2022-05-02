@@ -34,14 +34,7 @@ namespace EcoSystem
             return counter.Total;
         }
 
-        //public void c_ThresholdReached(object sender, EventArgs e)
-        //{
-        //    if (true)
-        //    {
-                
-        //    }
-        //   SetUp();
-        //}
+     
     }
 }
 

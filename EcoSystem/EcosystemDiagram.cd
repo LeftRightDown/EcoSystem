@@ -1,2 +1,165 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram /> 
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="EcoSystem.MainWindow">
+    <Position X="0.5" Y="5.75" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>XAML\MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="EcoSystem.StartInterface">
+    <Position X="0.5" Y="0.75" Width="4.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>XAML\StartInterface.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="EcoSystem.SystemInterface">
+    <Position X="5.5" Y="0.75" Width="4.75" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Delegate Name="EcoSystem.SystemInterface.BuyAndSell">
+        <TypeIdentifier>
+          <NewMemberFileName>XAML\SystemInterface.xaml.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAUAAACIAAABAEAABAAABAAAUBAABAgEQgAAAYAFAAA=</HashCode>
+      <FileName>XAML\SystemInterface.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="EcoSystem.Utility">
+    <Position X="17" Y="5.25" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Utility\Utility.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EcoSystem.Ratio">
+    <Position X="17" Y="7" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAABAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Utility\Ratio.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EcoSystem.LoadData">
+    <Position X="14.75" Y="9" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Utility\LoadData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EcoSystem.CountUI">
+    <Position X="11.5" Y="8.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAgAAAAAAAAAAAAACAECAAAAAAAAAAA=</HashCode>
+      <FileName>Utility\CountUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EcoSystem.Counter">
+    <Position X="21.5" Y="5.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAACAAAAAAAgQCAAAEIgAAAAAAA=</HashCode>
+      <FileName>Utility\Counter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EcoSystem.Vendor">
+    <Position X="14" Y="6.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>People\Vendor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EcoSystem.Player">
+    <Position X="10.5" Y="6.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>People\Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EcoSystem.Persons">
+    <Position X="10.75" Y="3.25" Width="2.75" />
+    <NestedTypes>
+      <Delegate Name="EcoSystem.Persons.CurrencyMath" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>People\Persons.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAACAAAIQAAAAAAACAAAAAAAAAAAAgCAAAA=</HashCode>
+      <FileName>People\Persons.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="EcoSystem.Consumer">
+    <Position X="10.75" Y="0.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>IAAAABAAAAAAAAAAAAAAAAAAAAAAAAAgAAAgAAAAAAA=</HashCode>
+      <FileName>Organisms\Consumer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EcoSystem.Decomposer">
+    <Position X="17.5" Y="0.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Organisms\Decomposer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EcoSystem.Entity">
+    <Position X="14.25" Y="0.5" Width="2.75" />
+    <NestedTypes>
+      <Class Name="EcoSystem.Entity.PopulationChangeEventArgs" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Organisms\Entity.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAgQAIBAAAAAISAAAAAgAAAAQAAABABAAA=</HashCode>
+      <FileName>Organisms\Entity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EcoSystem.Producer">
+    <Position X="17.5" Y="2.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAgAABAAAA=</HashCode>
+      <FileName>Organisms\Producer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EcoSystem.Game">
+    <Position X="0.5" Y="2.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAEAAIgIBEAAgAAAAAAA=</HashCode>
+      <FileName>Environment\Game.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EcoSystem.Item">
+    <Position X="0.5" Y="8" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAgAAQAAAAQAAQAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Environment\Item.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="EcoSystem.IExchange">
+    <Position X="5.5" Y="8.5" Width="5.75" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAIQAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>People\IExchange.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="EcoSystem.Status">
+    <Position X="20.75" Y="1.5" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAACAAAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Organisms\Entity.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
