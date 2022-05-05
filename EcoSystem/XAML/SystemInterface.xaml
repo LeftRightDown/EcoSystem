@@ -11,7 +11,7 @@
     <Grid x:Name="SystemGrid" Loaded="SystemGrid_Loaded">
         <TextBlock x:Name="timerTxt" HorizontalAlignment="Left" Margin="18,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="26" Width="116" FontSize="18" Background="#FFE5E5E5"/>
         <TextBlock x:Name="daynumberTxt" HorizontalAlignment="Left" Margin="18,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="27" Width="152" FontSize="18" Background="#FFE5E5E5"/>
-        <Button x:Name="ButtoneNextDay" Content="Button" HorizontalAlignment="Left" Margin="157,57,0,0" VerticalAlignment="Top" Width="91" Click="ButtoneNextDay_Click" Visibility="Hidden" FontSize="10"/>
+        <Button x:Name="ButtoneNextDay" Content="Button" HorizontalAlignment="Left" Margin="157,57,0,0" VerticalAlignment="Top" Width="91" Click="ButtoneNextDay_Click" Visibility="Hidden" FontSize="10" Background="#FFC83E3E"/>
         <TextBlock x:Name="currencyText" HorizontalAlignment="Left" Margin="360,12,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="26" Width="116" FontSize="18" Background="#FFE5E5E5"/>
         <TabControl x:Name="SystemTabControl" Margin="18,82,24,0">
             <TabItem x:Name="EnviornmentTab" Header="Environment">
@@ -97,15 +97,17 @@
             </TabItem>
             <TabItem x:Name="InventoryTab" Header="Inventory" >
                 <Grid x:Name="InventoryGrid" Background="#FFE5E5E5" Loaded="InventoryGrid_Loaded">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="29*"/>
-                        <ColumnDefinition Width="416*"/>
-                    </Grid.ColumnDefinitions>
+
                     <TextBlock x:Name="PlayerInventoryTitle" Grid.Column="1" HorizontalAlignment="Left" Margin="64.667,20,0,0" TextWrapping="Wrap" Text="Player Inventory" VerticalAlignment="Top" Height="53" Width="264" FontSize="36"/>
-                    <TextBlock x:Name="PlayerItemList" HorizontalAlignment="Left" Margin="29,73,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="381" Width="393" Grid.ColumnSpan="2" FontSize="18" TextAlignment="Center"/>
+
+                    <ScrollViewer Margin="9,78,15,10">
+                        <TextBlock x:Name="PlayerItemList" TextWrapping="Wrap" Text="" FontSize="18" TextAlignment="Center" Margin="0,8,0,0"/>
+                    </ScrollViewer>
+
                 </Grid>
             </TabItem>
         </TabControl>
+        <TextBlock x:Name="WeatherTxt" HorizontalAlignment="Left" Margin="317,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Background="#FFD8D8D8" Height="31" Width="159" FontSize="18"/>
 
 
 

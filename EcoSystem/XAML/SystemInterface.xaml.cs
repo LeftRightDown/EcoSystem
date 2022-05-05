@@ -51,6 +51,7 @@ namespace EcoSystem
             Timer();
             ButtoneNextDay.Content = "Next Day";
             currencyText.Text = $"{MainWindow.game.player.currencyDetail}";
+            WeatherTxt.Text = $"{Weather.CurrentWeather}";
             MessageBox.Show("KEEP THE ECOSYSTEM BALANCED!");
 
         }
@@ -59,9 +60,23 @@ namespace EcoSystem
         {
             if (DayNumber == 15)
             {
-               
+                foreach (Entity e in MainWindow.game.Organisms)
+                {
+                    if (e.EntityStatus == Status.Balanced)
+                    {
+                        MessageBox.Show("Congratulations Balancing the ecosystem!");
+                    }
+                    else
+                    {
+
+                    }
+                }
+                
+              
             }
         }
+
+
         #region "Timer"
         //Creates Timer
         private void Timer()
@@ -109,12 +124,22 @@ namespace EcoSystem
             ButtoneNextDay.Visibility=Visibility.Hidden;
 
             //Updates Txt
-            UpdateEnvironmentLog();
-            UpdateEntityTxt();
-            UpdateEntityIndicator();
-            
-            
+            //UpdateEnvironmentLog();
+            //UpdateEntityTxt();
+            //UpdateEntityIndicator();
+            //Weatherstatus();   
+            EndGame();
         }
+
+        //Ecosystem Weather
+        private void Weatherstatus()
+        {
+            Weather.CurrentWeather = Weather.GetWeather();
+            WeatherTxt.Text = $"{Weather.CurrentWeather}";
+
+            Weather.WeatherEffects();
+        }
+
         #endregion
 
         //Environment TAB

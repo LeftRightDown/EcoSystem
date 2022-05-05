@@ -29,20 +29,20 @@
       </Delegate>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAUAAACIAAABAEAABAAABAAAUBAABAgEQgAAAYAFAAA=</HashCode>
+      <HashCode>AAUAAACIAAABAEAABAAABAAAUBAABAgEQgAAAYAVAAA=</HashCode>
       <FileName>XAML\SystemInterface.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="EcoSystem.Utility">
-    <Position X="17" Y="5.25" Width="4" />
+    <Position X="17.25" Y="5.25" Width="4" />
     <TypeIdentifier>
       <HashCode>AAAgAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Utility\Utility.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="EcoSystem.Ratio">
-    <Position X="17" Y="7" Width="3.75" />
+    <Position X="17.5" Y="7" Width="3.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAACAAAABAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
       <FileName>Utility\Ratio.cs</FileName>
@@ -70,7 +70,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="EcoSystem.Vendor">
-    <Position X="14" Y="6.75" Width="2.75" />
+    <Position X="14" Y="7" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>People\Vendor.cs</FileName>
@@ -114,8 +114,11 @@
   </Class>
   <Class Name="EcoSystem.Entity">
     <Position X="14.25" Y="0.5" Width="2.75" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
     <NestedTypes>
-      <Class Name="EcoSystem.Entity.PopulationChangeEventArgs" Collapsed="true">
+      <Class Name="EcoSystem.Entity.PopulationChangeEventArgs">
         <TypeIdentifier>
           <NewMemberFileName>Organisms\Entity.cs</NewMemberFileName>
         </TypeIdentifier>
@@ -148,7 +151,7 @@
     </TypeIdentifier>
   </Class>
   <Interface Name="EcoSystem.IExchange">
-    <Position X="5.5" Y="8.5" Width="5.75" />
+    <Position X="5.25" Y="8.75" Width="5.75" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAAAAAIQAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
       <FileName>People\IExchange.cs</FileName>

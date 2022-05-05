@@ -49,10 +49,6 @@ namespace EcoSystem
 
         }
 
-        public void CheckButtonStatus()
-        {
-        
-        }
   
     }
 }

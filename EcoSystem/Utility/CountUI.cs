@@ -15,7 +15,7 @@ namespace EcoSystem
         {
             counter = new Counter(GetRandomNumber());
         }
-        private int GetRandomNumber()
+        public static int GetRandomNumber()
         {
             return new Random().Next(5);
         }
