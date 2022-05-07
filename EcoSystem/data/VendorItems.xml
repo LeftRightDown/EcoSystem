@@ -1,10 +1,10 @@
 <environment>
-	<item name ="Pesticide"  description="A spray of chemicals that protects crops from pest; Last for only 1 days"  price="5" quantity="2" imagePath="pesticides">
+	<item name ="Pesticide"  description="A spray of chemicals that protects crops from pest."  price="5" quantity="2" imagePath="pesticides">
 	</item>
-	<item name ="Hawk Deterrent"  description="An Owl decoy that keeps the big bad hawks away; Last for only 1 day"  price="10" quantity="1" imagePath="scarecrow">
+	<item name ="Hawk Deterrent"  description="An Owl decoy that keeps the big bad hawks away."  price="10" quantity="1" imagePath="scarecrow">
 	</item>
-	<item name ="Corn Seeds"  description="Seeds for Sacred Food of the Midwest "  price="10" quantity="30" imagePath="corn">
+	<item name ="Corn Seeds"  description="Seeds for Sacred Food of the Midwest."  price="10" quantity="30" imagePath="corn">
 	</item>
-	<item name="Cotton Seeds" description="Seeds for the softest thing on the planet" price ="10" quantity= "30" imagePath="cotton">
+	<item name="Cotton Seeds" description="Seeds for the softest thing on the planet." price ="10" quantity= "30" imagePath="cotton">
 	</item>
 </environment>

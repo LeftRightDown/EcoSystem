@@ -29,7 +29,7 @@
       </Delegate>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAUAAACIAAABAEAABAAABAAAUBAABAgEQgAAAYAVAAA=</HashCode>
+      <HashCode>AAUAAACIAAABAEAAAAAABACAUBAABAgEQgAAAYAFAAA=</HashCode>
       <FileName>XAML\SystemInterface.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -37,7 +37,7 @@
   <Class Name="EcoSystem.Utility">
     <Position X="17.25" Y="5.25" Width="4" />
     <TypeIdentifier>
-      <HashCode>AAAgAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Utility\Utility.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -65,7 +65,7 @@
   <Class Name="EcoSystem.Counter">
     <Position X="21.5" Y="5.25" Width="3" />
     <TypeIdentifier>
-      <HashCode>AAIAAAAAAAAAAAAAAAACAAAAAAAgQCAAAEIgAAAAAAA=</HashCode>
+      <HashCode>AAIAAAAAAAAAAAAAAAACAAAAAAAAQCAAAEAgAAAAAAA=</HashCode>
       <FileName>Utility\Counter.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -150,6 +150,13 @@
       <FileName>Environment\Item.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="EcoSystem.Weather">
+    <Position X="20.5" Y="2.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAEAAABAAAAAAAAAAAAAAAAAQAAAABAAA=</HashCode>
+      <FileName>Utility\Weather.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Interface Name="EcoSystem.IExchange">
     <Position X="5.25" Y="8.75" Width="5.75" />
     <TypeIdentifier>
@@ -158,10 +165,17 @@
     </TypeIdentifier>
   </Interface>
   <Enum Name="EcoSystem.Status">
-    <Position X="20.75" Y="1.5" Width="1.25" />
+    <Position X="20.5" Y="1" Width="1.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAIAAACAAAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Organisms\Entity.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="EcoSystem.WeatherType">
+    <Position X="22" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAACAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Utility\Weather.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Font Name="Segoe UI" Size="9" />

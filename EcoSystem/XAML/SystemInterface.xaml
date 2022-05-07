@@ -11,7 +11,7 @@
     <Grid x:Name="SystemGrid" Loaded="SystemGrid_Loaded">
         <TextBlock x:Name="timerTxt" HorizontalAlignment="Left" Margin="18,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="26" Width="116" FontSize="18" Background="#FFE5E5E5"/>
         <TextBlock x:Name="daynumberTxt" HorizontalAlignment="Left" Margin="18,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="27" Width="152" FontSize="18" Background="#FFE5E5E5"/>
-        <Button x:Name="ButtoneNextDay" Content="Button" HorizontalAlignment="Left" Margin="157,57,0,0" VerticalAlignment="Top" Width="91" Click="ButtoneNextDay_Click" Visibility="Hidden" FontSize="10" Background="#FFC83E3E"/>
+        <Button x:Name="ButtoneNextDay" HorizontalAlignment="Left" Margin="144,43,0,0" VerticalAlignment="Top" Width="98" Click="ButtoneNextDay_Click" Visibility="Hidden" FontSize="14" Background="#FFE5E5E5" Height="26" Foreground="#FF282C34" BorderBrush="#FF8D8D8D"/>
         <TextBlock x:Name="currencyText" HorizontalAlignment="Left" Margin="360,12,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="26" Width="116" FontSize="18" Background="#FFE5E5E5"/>
         <TabControl x:Name="SystemTabControl" Margin="18,82,24,0">
             <TabItem x:Name="EnviornmentTab" Header="Environment">
@@ -55,7 +55,7 @@
                         <TextBlock x:Name="LogTitleTxt" Canvas.Left="282" TextWrapping="Wrap" Text="Log" Height="18" Width="29" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Top="2"/>
                     </Canvas>
                     <ScrollViewer Margin="273,205,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="233" Width="178" VerticalContentAlignment="Top" Background="#FF929292" >
-                        <TextBlock x:Name="LogTxt" TextWrapping="Wrap" FontSize="8" Foreground="White"/>
+                        <TextBlock x:Name="LogTxt" TextWrapping="Wrap" FontSize="8" Foreground="#FFF1EFEF"/>
                     </ScrollViewer>
 
 

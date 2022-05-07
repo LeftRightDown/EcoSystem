@@ -13,6 +13,7 @@ namespace EcoSystem
         Rainy
     }
 
+    // Code for creating weather in the Ecosystem (From Canvas Enums Page)
     internal class Weather
     {
         static Random random = new Random();
@@ -27,7 +28,7 @@ namespace EcoSystem
             return CurrentWeather;
         }
 
-
+        //Code for How the weather effects entities
         public static  void WeatherEffects()
         {
             if (CurrentWeather == WeatherType.Sunny)

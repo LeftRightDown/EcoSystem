@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -25,7 +26,6 @@ namespace EcoSystem
     {
 
         //Declaring Timer Properties
-        CountUI count;
         DispatcherTimer timer;
         TimeSpan timeSpan;
          int DayNumber = 1;
@@ -52,37 +52,17 @@ namespace EcoSystem
             ButtoneNextDay.Content = "Next Day";
             currencyText.Text = $"{MainWindow.game.player.currencyDetail}";
             WeatherTxt.Text = $"{Weather.CurrentWeather}";
-            MessageBox.Show("KEEP THE ECOSYSTEM BALANCED!");
-
+            UpdateEnvironmentLog();
         }
-        //Method for end game conditions.
-        public void EndGame()
-        {
-            if (DayNumber == 15)
-            {
-                foreach (Entity e in MainWindow.game.Organisms)
-                {
-                    if (e.EntityStatus == Status.Balanced)
-                    {
-                        MessageBox.Show("Congratulations Balancing the ecosystem!");
-                    }
-                    else
-                    {
+   
 
-                    }
-                }
-                
-              
-            }
-        }
-
-
+        //Timer methods
         #region "Timer"
         //Creates Timer
         private void Timer()
         {
             //DispatchTimer example by kmatyaszek (https://stackoverflow.com/users/1410998/kmatyaszek)
-            timeSpan = TimeSpan.FromSeconds(1);
+            timeSpan = TimeSpan.FromSeconds(10);
 
             timer = new DispatcherTimer(
                 new TimeSpan(0, 0, 1),
@@ -124,11 +104,11 @@ namespace EcoSystem
             ButtoneNextDay.Visibility=Visibility.Hidden;
 
             //Updates Txt
-            //UpdateEnvironmentLog();
-            //UpdateEntityTxt();
-            //UpdateEntityIndicator();
-            //Weatherstatus();   
-            EndGame();
+            UpdateEnvironmentLog();
+            UpdateEntityTxt();
+            UpdateEntityIndicator();
+            Weatherstatus();
+
         }
 
         //Ecosystem Weather
@@ -193,9 +173,6 @@ namespace EcoSystem
             //Setting Up information being displayed on Environment Tab
             UpdateEntityTxt();
             UpdateEntityIndicator();
-            UpdateEnvironmentLog();
-
-
         }
 
 
